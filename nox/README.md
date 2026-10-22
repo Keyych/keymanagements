@@ -30,6 +30,8 @@ The matching crimson version is published at `vyper.keymanagements.org`.
 
 ## Silver motion effects
 
-`atmosphere.css` and `atmosphere.js` add a tapered metallic snake crawling from the bottom to the top behind the page content, a traveling silver highlight around all three image frames, and slow rotations of the frame stars. The canvas is decorative, does not intercept input, caps its pixel density at 2×, and draws at up to 30 fps.
+`atmosphere.css` and `atmosphere.js` add a generated, realistically scaled silver viper crawling from the bottom to the top behind the page content, a traveling silver highlight around all three image frames, and slow rotations of the frame stars. The canvas is decorative, does not intercept input, caps its pixel density at 2×, and draws at up to 30 fps.
 
 The footer's Pause motion control pauses all three effects and remembers the choice locally. System reduced-motion preferences disable the effects, including when changed while the page is open; hidden tabs suspend the animation loop. Verified upward travel, pause/resume and persistence, reduced-motion changes, hidden-tab suspension, and mobile layout/navigation at 390px.
+
+The snake uses `assets/silver-viper.webp`, generated with the built-in image tool with transparency, then optimized for the web. Its texture is mapped onto a mesh of anatomical cross sections, so the body follows the head along a continuous curved path without sliding a rigid image or wobbling horizontal strips. The head rotates with the path and stays undistorted.

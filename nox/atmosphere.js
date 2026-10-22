@@ -1,18 +1,20 @@
-/* A tapered silver serpent follows its own trail upward at a capped 30 fps. */
+/* Generated silver-viper artwork is skinned to a continuous upward path at 30 fps. */
 (() => {
   const canvas = document.querySelector('.night-serpent');
   const context = canvas.getContext('2d');
   const toggle = document.querySelector('.motion-toggle');
+  const snake = new Image();
+  let rig = null;
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = false;
   try { paused = localStorage.getItem('nox-motion-paused') === 'true'; } catch (_) { /* Storage can be unavailable. */ }
-  let width = 0, height = 0, length = 0, distance = 95, lane = 0;
+  let width = 0, height = 0, length = 0, distance = 140, lane = 0;
   let frame = 0, lastTime = 0, lastPaint = 0;
 
   function resize() {
     width = window.innerWidth;
     height = window.innerHeight;
-    length = Math.min(460, height * .64);
+    length = Math.min(560, height * .7);
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
@@ -20,100 +22,83 @@
     if (!motionPreference.matches) draw();
   }
 
+  function drawTriangle(source, target) {
+    const [s0, s1, s2] = source, [d0, d1, d2] = target;
+    const u1 = s1.x - s0.x, v1 = s1.y - s0.y;
+    const u2 = s2.x - s0.x, v2 = s2.y - s0.y;
+    const det = u1 * v2 - u2 * v1;
+    if (Math.abs(det) < .001) return;
+    const a = ((d1.x - d0.x) * v2 - (d2.x - d0.x) * v1) / det;
+    const b = ((d1.y - d0.y) * v2 - (d2.y - d0.y) * v1) / det;
+    const c = ((d2.x - d0.x) * u1 - (d1.x - d0.x) * u2) / det;
+    const d = ((d2.y - d0.y) * u1 - (d1.y - d0.y) * u2) / det;
+    context.save();
+    context.beginPath();
+    const cx = (d0.x + d1.x + d2.x) / 3, cy = (d0.y + d1.y + d2.y) / 3;
+    target.forEach((p, i) => {
+      // Subpixel overlap prevents hairline seams between neighboring triangles.
+      const norm = Math.hypot(p.x - cx, p.y - cy) || 1;
+      const x = p.x + (p.x - cx) / norm * .35;
+      const y = p.y + (p.y - cy) / norm * .35;
+      if (i === 0) context.moveTo(x, y); else context.lineTo(x, y);
+    });
+    context.closePath();
+    context.clip();
+    context.transform(a, b, c, d, d0.x - a * s0.x - c * s0.y, d0.y - b * s0.x - d * s0.y);
+    context.drawImage(snake, 0, 0);
+    context.restore();
+  }
+
   function draw() {
     if (!context) return;
     context.clearRect(0, 0, width, height);
+    if (!rig || !snake.complete || !snake.naturalWidth) return;
     const mobile = width < 700;
-    const amplitude = mobile ? 18 : 36;
-    const edge = mobile ? 35 : Math.max(54, width * .045);
+    const scale = length / rig.rings[rig.rings.length - 1][6];
+    const amplitude = mobile ? 24 : 42;
+    const edge = mobile ? 47 : Math.max(72, width * .055);
     const rail = lane % 2 === 0 ? edge : width - edge;
-    const radius = mobile ? 8 : 12;
-    const points = [];
-    const count = 90;
-    const wave = travel => amplitude * (Math.sin(travel * .022) + .18 * Math.sin(travel * .041));
-    for (let i = 0; i <= count; i++) {
-      const t = i / count;
-      const travel = distance - t * length;
-      const dx = wave(travel - 1) - wave(travel + 1);
-      const magnitude = Math.hypot(dx, 2);
-      points.push({
-        x: rail + wave(travel), y: height + 40 - travel,
-        nx: 2 / magnitude, ny: -dx / magnitude,
-        radius: radius * Math.pow(1 - t, .75) * (.65 + .35 * Math.sin(Math.min(t * 7, 1) * Math.PI / 2))
-      });
-    }
-
-    const metal = context.createLinearGradient(rail - amplitude - radius, 0, rail + amplitude + radius, 0);
-    metal.addColorStop(0, '#43525e');
-    metal.addColorStop(.28, '#9eafb9');
-    metal.addColorStop(.48, '#dce7ed');
-    metal.addColorStop(.64, '#748996');
-    metal.addColorStop(1, '#35434d');
-    context.beginPath();
-    points.forEach((p, i) => {
-      const x = p.x + p.nx * p.radius, y = p.y + p.ny * p.radius;
-      if (i === 0) context.moveTo(x, y); else context.lineTo(x, y);
+    const frequency = .014;
+    const slope = t => amplitude * frequency * Math.cos(t * frequency);
+    const point = t => {
+      const dx = -slope(t), norm = Math.hypot(dx, 1);
+      return {x: rail + amplitude * Math.sin(t * frequency), y: height + 40 - t,
+        nx: 1 / norm, ny: -dx / norm, tx: dx / norm, ty: 1 / norm};
+    };
+    let travel = distance;
+    const sections = rig.rings.map((ring, index) => {
+      const [x, y, nx, ny, left, right, arc] = ring;
+      if (index) {
+        const step = (arc - rig.rings[index - 1][6]) * scale;
+        const middle = travel - step / (2 * Math.hypot(1, slope(travel)));
+        travel -= step / Math.hypot(1, slope(middle));
+      }
+      const p = point(travel);
+      return {
+        center: p,
+        source: [{x: x - nx * left, y: y - ny * left}, {x: x + nx * right, y: y + ny * right}],
+        target: [{x: p.x - p.nx * left * scale, y: p.y - p.ny * left * scale},
+          {x: p.x + p.nx * right * scale, y: p.y + p.ny * right * scale}]
+      };
     });
-    for (let i = count; i >= 0; i--) {
-      const p = points[i];
-      context.lineTo(p.x - p.nx * p.radius, p.y - p.ny * p.radius);
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = 'high';
+    for (let i = sections.length - 2; i >= 0; i--) {
+      const a = sections[i], b = sections[i + 1];
+      if (b.center.y < -45 || a.center.y > height + 45) continue;
+      drawTriangle([a.source[0], a.source[1], b.source[1]], [a.target[0], a.target[1], b.target[1]]);
+      drawTriangle([a.source[0], b.source[1], b.source[0]], [a.target[0], b.target[1], b.target[0]]);
     }
-    context.closePath();
-    context.fillStyle = metal;
-    context.fill();
-    context.strokeStyle = '#d1e0e9';
-    context.lineWidth = .65;
-    context.stroke();
-
-    // Curved scales and a fine dorsal highlight give the body its metal finish.
-    context.strokeStyle = '#273945b3';
-    context.lineWidth = .8;
-    for (let i = 3; i < count - 2; i += 2) {
-      const p = points[i];
-      context.beginPath();
-      context.moveTo(p.x - p.nx * p.radius * .85, p.y - p.ny * p.radius * .85);
-      context.quadraticCurveTo(p.x, p.y + 5, p.x + p.nx * p.radius * .85, p.y + p.ny * p.radius * .85);
-      context.stroke();
+    // The head is rigid, pointing along the same trail the body follows.
+    const head = sections[0].center, neckX = rig.rings[0][0];
+    if (head.y > -40 && head.y < height + rig.neckY * scale + 40) {
+      context.save();
+      context.transform(head.nx * scale, head.ny * scale, head.tx * scale, head.ty * scale,
+        head.x - (neckX * head.nx + rig.neckY * head.tx) * scale,
+        head.y - (neckX * head.ny + rig.neckY * head.ty) * scale);
+      context.drawImage(snake, 0, 0, rig.width, rig.neckY + 1, 0, 0, rig.width, rig.neckY + 1);
+      context.restore();
     }
-    context.beginPath();
-    points.forEach((p, i) => {
-      const x = p.x - p.nx * p.radius * .28;
-      if (i === 0) context.moveTo(x, p.y); else context.lineTo(x, p.y);
-    });
-    context.strokeStyle = '#eff7ff80';
-    context.lineWidth = 1.1;
-    context.stroke();
-
-    const head = points[0], neck = points[2];
-    context.save();
-    context.translate(head.x, head.y);
-    context.rotate(Math.atan2(head.x - neck.x, neck.y - head.y));
-    const scale = mobile ? .76 : 1;
-    context.scale(scale, scale);
-    const headMetal = context.createLinearGradient(-11, 0, 11, 0);
-    headMetal.addColorStop(0, '#657984');
-    headMetal.addColorStop(.4, '#e4edf2');
-    headMetal.addColorStop(1, '#536975');
-    context.fillStyle = headMetal;
-    context.beginPath();
-    context.moveTo(0, -19);
-    context.bezierCurveTo(-8, -18, -13, -9, -10, 0);
-    context.quadraticCurveTo(-6, 10, 0, 10);
-    context.quadraticCurveTo(6, 10, 10, 0);
-    context.bezierCurveTo(13, -9, 8, -18, 0, -19);
-    context.fill();
-    context.strokeStyle = '#d8e6ee';
-    context.lineWidth = .7;
-    context.stroke();
-    for (const side of [-1, 1]) {
-      context.fillStyle = '#12232d';
-      context.beginPath();
-      context.ellipse(side * 6, -8, 1.6, 2.5, side * -.35, 0, Math.PI * 2);
-      context.fill();
-      context.fillStyle = '#f4faff';
-      context.fillRect(side * 6 - .4, -9, .8, 1.2);
-    }
-    context.restore();
   }
 
   function tick(time) {
@@ -135,7 +120,7 @@
     toggle.setAttribute('aria-pressed', String(paused));
     toggle.textContent = paused ? 'Resume motion' : 'Pause motion';
     if (motionPreference.matches) context?.clearRect(0, 0, width, height);
-    else if (!stopped && context) frame = requestAnimationFrame(tick);
+    else if (!stopped && context && rig && snake.complete && snake.naturalWidth) frame = requestAnimationFrame(tick);
   }
 
   toggle.addEventListener('click', () => {
@@ -146,6 +131,12 @@
   motionPreference.addEventListener('change', syncMotion);
   document.addEventListener('visibilitychange', syncMotion);
   window.addEventListener('resize', resize, {passive: true});
+  snake.addEventListener('load', () => { draw(); syncMotion(); });
+  snake.src = 'assets/silver-viper.webp';
+  fetch('assets/silver-viper-rig.json')
+    .then(response => { if (!response.ok) throw new Error('Snake artwork unavailable'); return response.json(); })
+    .then(data => { rig = data; draw(); syncMotion(); })
+    .catch(() => { canvas.hidden = true; });
   resize();
   syncMotion();
 })();

@@ -6,7 +6,7 @@ body { isolation: isolate; }
   width: 100%;
   height: 100%;
   z-index: 1;
-  opacity: .28;
+  opacity: .46;
   pointer-events: none;
 }
 .hero-art, .hero-side, .hero-bottom { z-index: 2; }
@@ -80,7 +80,7 @@ body { isolation: isolate; }
   animation-play-state: paused;
 }
 @media (max-width: 600px) {
-  .night-serpent { opacity: .21; }
+  .night-serpent { opacity: .32; }
   .motion-toggle { margin-left: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
