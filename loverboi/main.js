@@ -113,7 +113,6 @@ if ('IntersectionObserver' in window) {
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 const motionToggle = document.querySelector('.motion-toggle');
 const motionLabel = motionToggle.querySelector('.motion-label');
-const heroArt = document.querySelector('.hero-art');
 const activeEntrances = new Map();
 let motionPaused = false;
 
@@ -153,11 +152,6 @@ document.addEventListener('focusin', (event) => {
 window.addEventListener('beforeprint', finishEntrances);
 
 if ('IntersectionObserver' in window) {
-  const portraitObserver = new IntersectionObserver(([entry]) => {
-    heroArt.classList.toggle('is-in-view', entry.isIntersecting);
-  });
-  portraitObserver.observe(heroArt);
-
   if ('animate' in Element.prototype) {
     const entranceDelays = new Map();
     const heroElements = document.querySelectorAll('.hero-copy>.eyebrow, .hero-title-line>span, .hero-description, .hero-detail, .hero-copy>.button, .hero-footnote');
@@ -182,9 +176,7 @@ if ('IntersectionObserver' in window) {
       });
     }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
 
-    const sectionElements = document.querySelectorAll('.hero-art, .values-inner, .boundaries-intro, .boundaries-content, .work-layout>div, .support-heading, .social-card, .support-bottom, .footer-top, .footer-wordmark');
+    const sectionElements = document.querySelectorAll('.values-inner, .boundaries-intro, .boundaries-content, .work-layout>div, .support-heading, .social-card, .support-bottom, .footer-top, .footer-wordmark');
     [...heroElements, ...sectionElements].forEach((element) => entranceObserver.observe(element));
   }
-} else {
-  heroArt.classList.add('is-in-view');
 }

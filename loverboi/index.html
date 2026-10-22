@@ -20,11 +20,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/loverboi-persona.webp">
-<link rel="stylesheet" href="styles.css?v=6">
-<script src="main.js?v=3" defer></script>
+<link rel="stylesheet" href="styles.css?v=7">
+<script src="main.js?v=4" defer></script>
 <noscript><style>@media(max-width:640px){.main-nav{display:flex;flex-wrap:wrap}.menu-toggle{display:none}.header-inner{flex-wrap:wrap;padding-block:14px;gap:8px 20px}}</style></noscript>
 </head>
 <body>
+<div class="page-atmosphere" aria-hidden="true">
+ <div class="page-glow page-glow-left"></div><div class="page-glow page-glow-right"></div>
+ <div class="mirror-wall mirror-wall-left"><span></span><span></span><span></span><span></span></div>
+ <div class="mirror-wall mirror-wall-right"><span></span><span></span><span></span><span></span></div>
+</div>
 <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 9v6m4-10v14m5-18v22m5-18v14m4-10v6"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
@@ -63,7 +68,7 @@
    <a class="hero-footnote" href="#boundaries"><span class="round-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg></span>Good company. Clear boundaries.</a>
   </div>
   <div class="hero-art">
-   <div class="art-topline"><span>LOVERBOI / THE PERSONA</span><button class="motion-toggle" type="button" hidden><span class="voice-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span><span class="motion-label">Pause motion</span></button></div>
+   <div class="art-topline"><span>LOVERBOI / THE PERSONA</span><svg class="icon" aria-hidden="true"><use href="#i-wave"/></svg></div>
    <figure class="portrait"><img src="assets/loverboi-persona.webp" width="1024" height="1536" fetchpriority="high" alt="LoverBoi’s dark-haired persona holding a cracked silver mask, with ember-red fissures and a glowing red eye."><figcaption><span>BEHIND THE MASK.<br><em>THE SAME VOICE.</em></span><span class="art-monogram" aria-hidden="true">LB.</span></figcaption></figure>
    <div class="art-note"><span>A KEY MANAGEMENTS TALENT</span><span>VOICE / STORIES / CHARACTER</span></div>
   </div>
@@ -94,5 +99,6 @@
  </section>
 </main>
 <footer class="site-footer"><div class="container"><div class="footer-top"><p>Respect comes first.</p><a href="https://keymanagements.org"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg><span>REPRESENTED BY<br><strong>Key Managements</strong></span><svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a></div><a class="footer-wordmark" href="#top" aria-label="LoverBoi, back to top">LoverBoi<span aria-hidden="true">.</span></a><div class="footer-bottom"><span>© 2026 LoverBoi. All heart, always.</span><a href="#top">BACK TO TOP <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg></a></div></div></footer>
+<button class="motion-toggle page-motion-toggle" type="button" hidden><span class="voice-wave" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></span><span class="motion-label">Pause motion</span></button>
 </body>
 </html>
