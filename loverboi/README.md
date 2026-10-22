@@ -24,14 +24,12 @@ Deploy the contents of `loverboi/` as the site's document root.
 
 ## Visual direction
 
-Charcoal and steel, restrained violet accents, bold condensed headings, straight edges, and waveform details create a masculine recording-studio identity. No decorative hearts, florals, or pastel surfaces are used in the page.
+The site follows LoverBoi’s supplied persona: charcoal, weathered silver, and ember-red accents. Bold condensed headings and straight edges retain the masculine identity, while the portrait gives the page a recognizable character.
 
 ## Visual asset
 
-`assets/studio-microphone.webp` is original artwork created with the built-in image-generation tool and optimized to 1120 × 1400 WebP. It is conceptual studio artwork, not a photograph of the artist or his equipment. The image is bundled locally; the original PNG is retained outside the repository by the image-generation tool. The earlier rose composition is retained in Git history.
+`assets/loverboi-persona.webp` is the persona image supplied by the site owner, compressed as a 1024 × 1536 WebP without generative alterations. The original supplied PNG is unchanged. Responsive image positioning keeps the mask and face visible; the caption sits over the lower portion of the artwork. The same asset is used for social-sharing metadata.
 
-Generation prompt:
-
-> Use case: photorealistic-natural. Asset type: website hero artwork for a male voice artist named LoverBoi. Create a vertical 4:5 high-end editorial photograph of a vintage brushed chrome broadcast microphone on its stand in a dark, architectural recording studio. Strong sculptural silhouette, close-up metal grille and black mechanical details, directional cool silver rim light with a very restrained deep violet edge light, smoky charcoal-black backdrop and black acoustic panels fading into shadow. Off-center microphone slightly to the right with enough room around it to breathe. Masculine, understated, cinematic, confident, tactile analog music magazine aesthetic. Deep blacks, desaturated steel and faint plum highlights. Microphone fills middle 65 percent, full capsule and some stand visible, shallow depth of field and subtle film grain, crisp realistic metal. This is conceptual studio artwork, not a real person or a specific artist's equipment. No people, no flowers, no roses, no satin, no hearts, no neon, no text, no lettering, no logos, no watermark.
+Previous generated microphone and rose concepts remain recoverable in Git history and are no longer used by the page.
 
 Fonts: Barlow Condensed and Manrope from Google Fonts, with system fallbacks.
