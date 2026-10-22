@@ -24,7 +24,7 @@ Deploy the contents of `loverboi/` as the site's document root.
 
 ## Visual direction
 
-The site follows LoverBoi’s supplied persona: charcoal, weathered silver, and ember-red accents. Bold condensed headings and straight edges retain the masculine identity, while the portrait gives the page a recognizable character.
+The site follows LoverBoi’s supplied persona: charcoal, weathered silver, and vivid purple accents. Bold condensed headings and straight edges retain the masculine identity, while the portrait gives the page a recognizable character.
 
 ## Visual asset
 
