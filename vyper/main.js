@@ -1,38 +1,56 @@
-(() => {
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.getElementById('navigation');
-  if (toggle && nav) {
-    toggle.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    nav.addEventListener('click', (e) => {
-      if (e.target.closest('a')) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
-    });
+const menuButton = document.querySelector('.menu-toggle');
+const navigation = document.querySelector('#navigation');
+function closeMenu() {
+  menuButton.setAttribute('aria-expanded', 'false');
+  navigation.classList.remove('open');
+  menuButton.querySelector('span').textContent = '+';
+}
+menuButton.addEventListener('click', () => {
+  const open = menuButton.getAttribute('aria-expanded') !== 'true';
+  menuButton.setAttribute('aria-expanded', String(open));
+  navigation.classList.toggle('open', open);
+  menuButton.querySelector('span').textContent = open ? '−' : '+';
+});
+navigation.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+    closeMenu(); menuButton.focus();
   }
-
-  // Pre-select the enquiry subject when arriving via a service link
-  document.querySelectorAll('[data-interest]').forEach((link) => {
-    link.addEventListener('click', () => {
-      const select = document.getElementById('project-type');
-      if (select) select.value = link.dataset.interest;
+});
+document.addEventListener('click', event => {
+  if (!event.target.closest('.site-header')) closeMenu();
+});
+window.matchMedia('(min-width: 801px)').addEventListener('change', closeMenu);
+document.querySelectorAll('[data-interest]').forEach(link => {
+  link.addEventListener('click', () => { document.querySelector('#project-type').value = link.dataset.interest; });
+});
+document.querySelector('#enquiry-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const type = document.querySelector('#project-type').value;
+  const brief = document.querySelector('#project-brief').value.trim();
+  const subject = `Nox_vyper — ${type}`;
+  const body = `Hello Key Managements,\n\nI’d like to enquire about ${type.toLowerCase()} with Nox_vyper.\n\n${brief || 'Project details:\nTimeline:\n'}\n\nThank you.`;
+  window.location.href = `mailto:ksodonnell1998@icloud.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.querySelector('#contact-status').textContent = 'Your email draft is ready. If your email app did not open, use “Email management directly” above.';
+});
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const animations = new Map();
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      if (reducedMotion.matches) return;
+      const animation = entry.target.animate([{opacity: .25, transform: 'translateY(18px)'}, {opacity: 1, transform: 'translateY(0)'}], {duration: 700, easing: 'cubic-bezier(.2,.7,.2,1)'});
+      animations.set(entry.target, animation);
+      animation.addEventListener('finish', () => animations.delete(entry.target));
     });
+  }, {threshold: .08});
+  document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  const finishAnimations = () => { animations.forEach(animation => animation.finish()); animations.clear(); };
+  reducedMotion.addEventListener('change', finishAnimations);
+  document.addEventListener('focusin', event => {
+    const parent = event.target.closest('.reveal');
+    if (parent) animations.get(parent)?.finish();
   });
-
-  const form = document.getElementById('enquiry-form');
-  const status = document.getElementById('contact-status');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const project = document.getElementById('project-type').value;
-      const brief = document.getElementById('project-brief').value.trim();
-      const subject = encodeURIComponent('Enquiry for Nox_vyper — ' + project);
-      const body = encodeURIComponent(
-        'Hi Key Managements,\n\nI’d like to work with Nox_vyper.\n\nInterested in: ' + project +
-        (brief ? '\n\nThe idea:\n' + brief : '') + '\n\nThanks!'
-      );
-      window.location.href = 'mailto:ksodonnell1998@icloud.com?subject=' + subject + '&body=' + body;
-      if (status) status.textContent = 'Your email app should open with a draft enquiry.';
-    });
-  }
-})();
+}
