@@ -46,6 +46,8 @@ img { display:block; width:100%; height:auto; }
 .hero-copy { min-width:0; padding-top:10px; }
 .status-dot { width:6px; height:6px; background:var(--accent); flex-shrink:0; }
 .hero h1 { width:fit-content; font-size:clamp(88px,9.2vw,136px); margin-top:26px; letter-spacing:-.025em; line-height:.88; font-weight:700; }
+.hero-title-line { display:block; overflow:clip; padding-bottom:.07em; margin-bottom:-.07em; }
+.hero-title-line>span { display:block; }
 .hero-description { font-size:18px; font-weight:600; line-height:1.6; margin-top:29px; letter-spacing:-.02em; }
 .hero-detail { font-size:14px; color:var(--muted); max-width:345px; margin-top:13px; line-height:1.85; }
 .button { min-height:54px; display:inline-flex; align-items:center; justify-content:center; gap:16px; padding:14px 23px; font-size:12px; font-weight:700; transition:transform .2s,background .2s; }
@@ -57,11 +59,19 @@ img { display:block; width:100%; height:auto; }
 .round-arrow { display:flex; justify-content:center; align-items:center; border:1px solid #493b5b; width:31px; height:31px; transition:transform .2s,background .2s; }
 .round-arrow .icon { width:14px; }
 .hero-footnote:hover .round-arrow { transform:translateY(3px); background:var(--surface-raised); }
-.hero-art { min-width:0; }
+.hero-art { min-width:0; position:relative; isolation:isolate; }
+.hero-art::before { content:''; position:absolute; z-index:-1; inset:9% -4% 3%; background:radial-gradient(ellipse at 78% 22%,#813fff55,transparent 65%),radial-gradient(ellipse at 12% 78%,#a475ff2b,transparent 60%); filter:blur(22px); opacity:.7; pointer-events:none; }
 .art-topline { display:flex; align-items:center; justify-content:space-between; font-size:9px; letter-spacing:.17em; font-weight:600; margin-bottom:14px; color:var(--muted); }
 .art-topline .icon { width:22px; height:15px; color:var(--accent); }
-.portrait { position:relative; aspect-ratio:.8; background:var(--dark); border:1px solid #3f334f; }
+.motion-toggle { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:0 4px 0 12px; margin-block:-12px; background:transparent; font-size:9px; letter-spacing:.02em; color:var(--muted); transition:color .2s; }
+.motion-toggle:hover { color:var(--ink); }
+.voice-wave { display:flex; align-items:center; justify-content:center; gap:3px; width:22px; height:22px; color:var(--accent); }
+.voice-wave span { width:2px; height:7px; background:currentColor; transform-origin:center; }
+.voice-wave span:nth-child(2),.voice-wave span:nth-child(4) { height:13px; }
+.voice-wave span:nth-child(3) { height:21px; }
+.portrait { position:relative; aspect-ratio:.8; background:var(--dark); border:1px solid #3f334f; overflow:hidden; }
 .portrait img { height:100%; object-fit:cover; object-position:center top; }
+.portrait::before { content:''; position:absolute; z-index:1; inset:0; box-shadow:inset 0 0 38px #a475ff18; background:linear-gradient(125deg,#a475ff1c,transparent 36%,transparent 73%,#7738d51a); pointer-events:none; }
 .portrait::after { content:''; position:absolute; inset:70% 0 0; background:linear-gradient(transparent,#08060ce8); pointer-events:none; }
 .portrait figcaption { position:absolute; bottom:25px; left:27px; right:27px; z-index:1; display:flex; align-items:end; justify-content:space-between; color:#f1edf7; font:600 clamp(24px,2.4vw,34px)/1.03 var(--display); letter-spacing:.005em; }
 .portrait figcaption em { color:var(--accent); }
@@ -155,6 +165,32 @@ img { display:block; width:100%; height:auto; }
 .footer-bottom { border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:68px; font-size:10px; color:var(--muted); }
 .footer-bottom>a { display:inline-flex; align-items:center; gap:13px; min-height:44px; font-size:9px; letter-spacing:.1em; }
 .footer-bottom .icon { width:14px; }
+/* Ambient motion only runs while the portrait is visible and motion is enabled. */
+@media(prefers-reduced-motion:no-preference) {
+ .motion-ready .hero-art::before { animation:persona-aura 9s ease-in-out infinite alternate paused; }
+ .motion-ready .portrait img { transform-origin:55% 30%; animation:persona-drift 18s ease-in-out infinite alternate paused; }
+ .motion-ready .voice-wave span { animation:voice-wave 1.35s ease-in-out infinite alternate paused; }
+ .motion-ready .voice-wave span:nth-child(2) { animation-duration:1.05s; animation-delay:-.4s; }
+ .motion-ready .voice-wave span:nth-child(3) { animation-duration:1.65s; animation-delay:-.8s; }
+ .motion-ready .voice-wave span:nth-child(4) { animation-duration:1.2s; animation-delay:-.2s; }
+ .motion-ready .voice-wave span:nth-child(5) { animation-duration:1.5s; animation-delay:-.6s; }
+ .motion-ready:not(.motion-paused):not(.page-hidden) .hero-art.is-in-view::before,
+ .motion-ready:not(.motion-paused):not(.page-hidden) .hero-art.is-in-view .portrait img,
+ .motion-ready:not(.motion-paused):not(.page-hidden) .hero-art.is-in-view .voice-wave span { animation-play-state:running; }
+}
+@keyframes persona-aura {
+ from { opacity:.45; transform:translateY(6px) scale(.97); }
+ to { opacity:1; transform:translateY(-7px) scale(1.035); }
+}
+@keyframes persona-drift {
+ from { transform:scale(1); }
+ to { transform:scale(1.045); }
+}
+@keyframes voice-wave {
+ from { transform:scaleY(.4); opacity:.55; }
+ to { transform:scaleY(1); opacity:1; }
+}
+html.motion-paused { scroll-behavior:auto; }
 @media(min-width:1500px) { .hero { gap:100px; padding-block:64px 80px; } }
 @media(max-width:1100px) {
  .container { width:calc(100% - 72px); }
@@ -285,7 +321,7 @@ img { display:block; width:100%; height:auto; }
  :root { --bg:white; --surface:white; --ink:#111; --muted:#333; --accent:#5925a6; --line:#bbb; }
  body { color:var(--ink); background:white; }
  .site-header { position:static; background:white; }
- .menu-toggle,.expand-rules,.copy-email,.hero-art,.work-wave { display:none!important; }
+ .menu-toggle,.expand-rules,.copy-email,.hero-art,.work-wave,.motion-toggle { display:none!important; }
  .hero,.boundaries-layout,.work-layout { display:block; }
  .section-space,.hero { padding-block:24px; }
  .hero h1 { font-size:64px; }

@@ -20,6 +20,8 @@ Deploy the contents of `loverboi/` as the site's document root.
 - JavaScript adds mobile navigation, expand/collapse all, active-section navigation, printing of all rules, and email copying with error feedback.
 - Content, disclosure groups, and links work without JavaScript. Clipboard controls only appear in secure browser contexts that support them.
 - Reduced-motion preferences are respected. Interactive controls have keyboard focus indicators.
+- Motion adds a slow portrait zoom, drifting violet glow, animated voice waveform, and one-time scroll entrances. The portrait animation pauses offscreen and in background tabs; visitors can pause all decorative motion with the control above the portrait.
+- Motion uses CSS and the native Web Animations API without a library. Content remains visible without JavaScript; reduced-motion settings disable animations, including when changed during a visit. Keyboard focus and printing finish any active entrances immediately.
 - Services remain marked as coming soon; no booking or payment processing is implemented.
 
 ## Visual direction

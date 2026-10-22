@@ -108,3 +108,83 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-18% 0px -50% 0px', threshold: 0 });
   document.querySelectorAll('main section[id]:not(#top)').forEach((section) => observer.observe(section));
 }
+
+// Content stays visible by default. Motion is an enhancement, never a loading gate.
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const motionToggle = document.querySelector('.motion-toggle');
+const motionLabel = motionToggle.querySelector('.motion-label');
+const heroArt = document.querySelector('.hero-art');
+const activeEntrances = new Map();
+let motionPaused = false;
+
+function finishEntrances() {
+  activeEntrances.forEach((animation) => animation.finish());
+}
+
+function updateMotion() {
+  const reduced = motionPreference.matches;
+  document.documentElement.classList.toggle('motion-ready', !reduced);
+  document.documentElement.classList.toggle('motion-paused', reduced || motionPaused);
+  motionToggle.hidden = reduced;
+  motionLabel.textContent = motionPaused ? 'Play motion' : 'Pause motion';
+  if (reduced || motionPaused) finishEntrances();
+}
+
+motionToggle.addEventListener('click', () => {
+  motionPaused = !motionPaused;
+  updateMotion();
+});
+motionPreference.addEventListener('change', updateMotion);
+updateMotion();
+
+function updatePageVisibility() {
+  document.documentElement.classList.toggle('page-hidden', document.hidden);
+  if (document.hidden) finishEntrances();
+}
+document.addEventListener('visibilitychange', updatePageVisibility);
+updatePageVisibility();
+
+// Finish a reveal immediately when keyboard navigation reaches its content.
+document.addEventListener('focusin', (event) => {
+  activeEntrances.forEach((animation, element) => {
+    if (element.contains(event.target)) animation.finish();
+  });
+});
+window.addEventListener('beforeprint', finishEntrances);
+
+if ('IntersectionObserver' in window) {
+  const portraitObserver = new IntersectionObserver(([entry]) => {
+    heroArt.classList.toggle('is-in-view', entry.isIntersecting);
+  });
+  portraitObserver.observe(heroArt);
+
+  if ('animate' in Element.prototype) {
+    const entranceDelays = new Map();
+    const heroElements = document.querySelectorAll('.hero-copy>.eyebrow, .hero-title-line>span, .hero-description, .hero-detail, .hero-copy>.button, .hero-footnote');
+    heroElements.forEach((element, index) => entranceDelays.set(element, Math.min(index * 80, 400)));
+
+    const entranceObserver = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        entranceObserver.unobserve(target);
+        if (motionPreference.matches || motionPaused || document.hidden || target.contains(document.activeElement)) return;
+        const animation = target.animate([
+          { opacity: 0, transform: 'translateY(24px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], {
+          duration: 800,
+          delay: entranceDelays.get(target) || 0,
+          easing: 'cubic-bezier(.22, 1, .36, 1)',
+          fill: 'backwards'
+        });
+        activeEntrances.set(target, animation);
+        animation.onfinish = animation.oncancel = () => activeEntrances.delete(target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -24px 0px' });
+
+    const sectionElements = document.querySelectorAll('.hero-art, .values-inner, .boundaries-intro, .boundaries-content, .work-layout>div, .support-heading, .social-card, .support-bottom, .footer-top, .footer-wordmark');
+    [...heroElements, ...sectionElements].forEach((element) => entranceObserver.observe(element));
+  }
+} else {
+  heroArt.classList.add('is-in-view');
+}
