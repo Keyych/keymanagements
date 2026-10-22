@@ -21,3 +21,7 @@ The three WebP illustrations were created with the built-in image generation too
 ## Validation
 
 Checked JavaScript syntax, local references and anchor targets, email-draft encoding and destination, service disclosures, mobile navigation, and responsive content widths at 375, 390, 768, 1024, and 1440 pixels.
+
+## Color palette
+
+Gunmetal surfaces, silver text and ornament, and brushed-silver buttons. Artwork is displayed in grayscale through CSS to match the site palette.
