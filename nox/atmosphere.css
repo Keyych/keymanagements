@@ -1,0 +1,89 @@
+/* Nox's silver motion layer sits above section backgrounds, below content. */
+body { isolation: isolate; }
+.night-serpent {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: .28;
+  pointer-events: none;
+}
+.hero-art, .hero-side, .hero-bottom { z-index: 2; }
+.hero-frame { z-index: 3; }
+.genre-strip > *, .about > *, .work > *, .boundaries-inner,
+.contact > *, .closing > *, .site-footer { position: relative; z-index: 2; }
+.boundary-art { position: relative; }
+
+/* A narrow conic highlight travels around the metal, never over the image. */
+@property --metal-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.hero-frame, .portrait, .boundary-art {
+  border-color: #9cabb65c;
+  box-shadow: 0 0 0 1px #e5edf00c, inset 0 0 0 1px #d5e1e70a;
+}
+.boundary-art { box-shadow: 0 20px 60px #0007, 0 0 0 1px #e5edf012; }
+.frame-glint {
+  position: absolute;
+  inset: -1px;
+  padding: 2px;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 4;
+  background: conic-gradient(from var(--metal-angle),
+    transparent 0deg 18deg, #9aafbd44 35deg, #f5faff 46deg,
+    #b9cbd86b 53deg, transparent 70deg 196deg,
+    #d2e1ec80 218deg, transparent 240deg 360deg);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: silver-orbit 12s linear infinite;
+}
+.portrait .frame-glint { animation-delay: -4s; animation-duration: 15s; }
+.boundary-art .frame-glint { animation-delay: -8s; animation-duration: 17s; }
+@keyframes silver-orbit { to { --metal-angle: 360deg; } }
+
+.hero-frame::before, .hero-frame::after, .portrait-corner {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  line-height: 1;
+  transform-origin: center;
+  text-shadow: 0 0 9px #d3e5f03b;
+  animation: star-turn 24s linear infinite;
+  z-index: 5;
+}
+.hero-frame::before { left: -16px; bottom: -16px; }
+.hero-frame::after { right: -16px; bottom: -16px; animation-direction: reverse; }
+.portrait-corner.top { right: -21px; animation-duration: 30s; }
+.portrait-corner.bottom { left: -21px; animation-direction: reverse; animation-delay: -8s; }
+@keyframes star-turn { to { transform: rotate(360deg); } }
+
+.motion-toggle {
+  min-height: 44px;
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  background: #1c252d;
+  color: var(--silver);
+  font-size: 10px;
+  letter-spacing: .06em;
+}
+.motion-toggle:hover { border-color: var(--silver); }
+.footer-bottom { align-items: center; }
+.motion-paused .frame-glint, .motion-paused .portrait-corner,
+.motion-paused .hero-frame::before, .motion-paused .hero-frame::after {
+  animation-play-state: paused;
+}
+@media (max-width: 600px) {
+  .night-serpent { opacity: .21; }
+  .motion-toggle { margin-left: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .night-serpent, .motion-toggle { display: none; }
+  .frame-glint { --metal-angle: 46deg; }
+}

@@ -16,10 +16,13 @@
   <link rel="preload" href="assets/vyper-gothic-hero.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="atmosphere.css">
   <script src="main.js" defer></script>
+  <script src="atmosphere.js" defer></script>
   <noscript><style>@media(max-width:800px){.menu-toggle{display:none}.site-header{min-height:82px;height:auto;flex-wrap:wrap;padding-block:20px;gap:18px}#navigation{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:15px;background:none;padding:0;border:0}#navigation>a{font-size:8px;padding:4px}.nav-contact{border:0;margin:0}}</style></noscript>
 </head>
 <body>
+  <canvas class="night-serpent" aria-hidden="true"></canvas>
   <svg class="symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
     <symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
@@ -43,7 +46,7 @@
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-art"><img src="assets/vyper-gothic-hero.webp" width="1122" height="1402" alt="Nox_vyper’s helmeted persona in a black suit, standing in a rain-soaked gothic cloister with carved serpents and moonlit stained glass." fetchpriority="high"></div>
-      <div class="hero-frame" aria-hidden="true"><span></span></div>
+      <div class="hero-frame" aria-hidden="true"><span></span><i class="frame-glint"></i></div>
       <div class="hero-content">
         <p class="eyebrow"><span class="accent-line"></span> Nox_vyper · Voice actor</p>
         <h1 id="hero-title">The night<br>has a <em>voice.</em></h1>
@@ -59,6 +62,7 @@
 
     <section class="about section" id="about" aria-labelledby="about-title">
       <figure class="portrait reveal">
+        <i class="frame-glint" aria-hidden="true"></i>
         <div class="portrait-image"><img src="assets/vyper-gothic-study.webp" width="1122" height="1402" alt="Nox_vyper’s helmeted persona in a candlelit gothic study with a carved desk and tall stained-glass windows." loading="lazy"></div>
         <span class="portrait-corner top" aria-hidden="true">✦</span><span class="portrait-corner bottom" aria-hidden="true">✦</span>
         <figcaption><span>Beyond the mask</span><span>01 — Nox_vyper</span></figcaption>
@@ -88,7 +92,7 @@
             <li><svg aria-hidden="true"><use href="#link"/></svg><span>Collaboration and business<br>inquiries accepted.</span><small>06</small></li>
           </ol>
         </div>
-        <figure class="boundary-art reveal"><a href="assets/vyper-gothic-serpents.webp" target="_blank" rel="noopener" aria-label="View the gothic serpent artwork"><img src="assets/vyper-gothic-serpents.webp" width="1024" height="1536" alt="Gothic silver serpent and crown artwork, accompanying the six community boundaries." loading="lazy"><span class="art-caption">Respect is part of the story <svg aria-hidden="true"><use href="#diagonal"/></svg></span></a></figure>
+        <figure class="boundary-art reveal"><i class="frame-glint" aria-hidden="true"></i><a href="assets/vyper-gothic-serpents.webp" target="_blank" rel="noopener" aria-label="View the gothic serpent artwork"><img src="assets/vyper-gothic-serpents.webp" width="1024" height="1536" alt="Gothic silver serpent and crown artwork, accompanying the six community boundaries." loading="lazy"><span class="art-caption">Respect is part of the story <svg aria-hidden="true"><use href="#diagonal"/></svg></span></a></figure>
       </div>
     </section>
 
@@ -102,6 +106,6 @@
     </section>
     <div class="closing"><svg aria-hidden="true"><use href="#ornament"/></svg><p>Every rose has thorns.<br><em>So does he.</em></p></div>
   </main>
-  <footer class="site-footer"><div class="footer-top"><a class="wordmark" href="#top">Nox_vyper<span>.</span></a><a class="back-top" href="#top">Back to the night <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© 2026 Nox_vyper</span><span>Dark romance · Character voices · Narration</span><a href="https://keymanagements.org/">A Key Managements talent ↗</a></div></footer>
+  <footer class="site-footer"><div class="footer-top"><a class="wordmark" href="#top">Nox_vyper<span>.</span></a><a class="back-top" href="#top">Back to the night <span aria-hidden="true">↑</span></a></div><div class="footer-bottom"><span>© 2026 Nox_vyper</span><button class="motion-toggle" type="button" aria-pressed="false" hidden>Pause motion</button><span>Dark romance · Character voices · Narration</span><a href="https://keymanagements.org/">A Key Managements talent ↗</a></div></footer>
 </body>
 </html>
