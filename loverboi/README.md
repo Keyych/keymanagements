@@ -22,12 +22,16 @@ Deploy the contents of `loverboi/` as the site's document root.
 - Reduced-motion preferences are respected. Interactive controls have keyboard focus indicators.
 - Services remain marked as coming soon; no booking or payment processing is implemented.
 
+## Visual direction
+
+Charcoal and steel, restrained violet accents, bold condensed headings, straight edges, and waveform details create a masculine recording-studio identity. No decorative hearts, florals, or pastel surfaces are used in the page.
+
 ## Visual asset
 
-`assets/voice-and-rose.webp` is original artwork created with the built-in image-generation tool and optimized to 1120 × 1400 WebP (about 93 KB). It is a conceptual still life, not a photograph of the artist or his equipment. The image is bundled locally; the original PNG is retained outside the repository by the image-generation tool.
+`assets/studio-microphone.webp` is original artwork created with the built-in image-generation tool and optimized to 1120 × 1400 WebP. It is conceptual studio artwork, not a photograph of the artist or his equipment. The image is bundled locally; the original PNG is retained outside the repository by the image-generation tool. The earlier rose composition is retained in Git history.
 
 Generation prompt:
 
-> Use case: stylized-concept. Asset type: editorial website hero photograph for LoverBoi, a romantic voice artist with a lavender brand. Create one beautifully art-directed vertical still-life photograph, portrait 4:5. A vintage chrome broadcast microphone on a short elegant stand, entwined with one velvety deep-purple rose with natural stem and a few leaves. Microphone centered slightly right, rose bloom beside upper left of microphone. Dark smoky aubergine studio background, subtle lilac spotlight falling across metallic chrome grille, violet satin fabric gently gathered on the bottom surface. High-end analog music editorial, intimate and tactile, dramatic chiaroscuro, fine film grain, sculptural shadow, natural photographic realism. Restrained palette of inky plum, silver, muted lavender and violet. Entire microphone head visible with ample breathing room above and beside. Strong silhouette, elegant simple composition, subject fills middle 65 percent. No people, no text, no lettering, no watermark, no logos, no headphones.
+> Use case: photorealistic-natural. Asset type: website hero artwork for a male voice artist named LoverBoi. Create a vertical 4:5 high-end editorial photograph of a vintage brushed chrome broadcast microphone on its stand in a dark, architectural recording studio. Strong sculptural silhouette, close-up metal grille and black mechanical details, directional cool silver rim light with a very restrained deep violet edge light, smoky charcoal-black backdrop and black acoustic panels fading into shadow. Off-center microphone slightly to the right with enough room around it to breathe. Masculine, understated, cinematic, confident, tactile analog music magazine aesthetic. Deep blacks, desaturated steel and faint plum highlights. Microphone fills middle 65 percent, full capsule and some stand visible, shallow depth of field and subtle film grain, crisp realistic metal. This is conceptual studio artwork, not a real person or a specific artist's equipment. No people, no flowers, no roses, no satin, no hearts, no neon, no text, no lettering, no logos, no watermark.
 
-Fonts: Cormorant Garamond and Manrope from Google Fonts, with system fallbacks.
+Fonts: Barlow Condensed and Manrope from Google Fonts, with system fallbacks.
