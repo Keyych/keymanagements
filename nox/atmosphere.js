@@ -8,7 +8,7 @@
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let paused = false;
   try { paused = localStorage.getItem('nox-motion-paused') === 'true'; } catch (_) { /* Storage can be unavailable. */ }
-  let width = 0, height = 0, length = 0, distance = 140, lane = 0;
+  let width = 0, height = 0, length = 0, distance = 140;
   let frame = 0, lastTime = 0, lastPaint = 0;
 
   function resize() {
@@ -57,7 +57,7 @@
     const scale = length / rig.rings[rig.rings.length - 1][6];
     const amplitude = mobile ? 24 : 42;
     const edge = mobile ? 47 : Math.max(72, width * .055);
-    const rail = lane % 2 === 0 ? edge : width - edge;
+    const rail = edge;
     const frequency = .014;
     const slope = t => amplitude * frequency * Math.cos(t * frequency);
     const point = t => {
@@ -105,7 +105,7 @@
     const delta = lastTime ? Math.min(time - lastTime, 70) : 0;
     lastTime = time;
     distance += delta * (height + length + 100) / 32000;
-    if (distance > height + length + 100) { distance = 0; lane++; }
+    if (distance > height + length + 100) { distance = 0; }
     if (time - lastPaint >= 1000 / 30) { draw(); lastPaint = time; }
     frame = requestAnimationFrame(tick);
   }
