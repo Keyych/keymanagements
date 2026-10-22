@@ -76,13 +76,6 @@ img { display:block; width:100%; height:auto; }
 .hero-art { min-width:0; position:relative; isolation:isolate; }
 .art-topline { display:flex; align-items:center; justify-content:space-between; font-size:9px; letter-spacing:.17em; font-weight:600; margin-bottom:14px; color:var(--muted); }
 .art-topline .icon { width:22px; height:15px; color:var(--accent); }
-.motion-toggle { display:inline-flex; align-items:center; gap:10px; min-height:44px; padding:0 4px 0 12px; margin-block:-12px; background:transparent; font-size:9px; letter-spacing:.02em; color:var(--muted); transition:color .2s; }
-.motion-toggle:hover { color:var(--ink); }
-.page-motion-toggle { position:fixed; right:20px; bottom:max(20px,env(safe-area-inset-bottom)); z-index:30; margin:0; min-height:44px; padding:9px 14px; background:#15101fee; border:1px solid #8060ad; box-shadow:0 4px 24px #0006; color:var(--ink); font-size:10px; }
-.voice-wave { display:flex; align-items:center; justify-content:center; gap:3px; width:22px; height:22px; color:var(--accent); }
-.voice-wave span { width:2px; height:7px; background:currentColor; transform-origin:center; }
-.voice-wave span:nth-child(2),.voice-wave span:nth-child(4) { height:13px; }
-.voice-wave span:nth-child(3) { height:21px; }
 .portrait { position:relative; aspect-ratio:.8; background:var(--dark); border:1px solid #3f334f; overflow:hidden; }
 .portrait img { height:100%; object-fit:cover; object-position:center top; }
 .portrait::before { content:''; position:absolute; z-index:1; inset:0; box-shadow:inset 0 0 38px #a475ff18; background:linear-gradient(125deg,#a475ff1c,transparent 36%,transparent 73%,#7738d51a); pointer-events:none; }
@@ -167,7 +160,7 @@ img { display:block; width:100%; height:auto; }
 .support-actions a { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:44px; padding:9px 17px; border:1px solid #56406f; font-size:11px; font-weight:600; transition:background .2s; }
 .support-actions a:hover { background:#2b1d3c; }
 .support-actions .icon { width:14px; height:14px; }
-.site-footer { background:#0b0a0eb8; border-top:1px solid var(--line); padding-top:44px; padding-bottom:76px; overflow:hidden; }
+.site-footer { background:#0b0a0eb8; border-top:1px solid var(--line); padding-top:44px; overflow:hidden; }
 .footer-top { display:flex; justify-content:space-between; align-items:center; gap:24px; }
 .footer-top>p { font:500 27px var(--display); text-transform:uppercase; color:var(--accent); }
 .footer-top>a { display:flex; align-items:center; gap:15px; font-size:8px; font-weight:500; letter-spacing:.13em; color:var(--muted); }
@@ -179,7 +172,7 @@ img { display:block; width:100%; height:auto; }
 .footer-bottom { border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:68px; font-size:10px; color:var(--muted); }
 .footer-bottom>a { display:inline-flex; align-items:center; gap:13px; min-height:44px; font-size:9px; letter-spacing:.1em; }
 .footer-bottom .icon { width:14px; }
-/* The page effect shares the global pause and reduced-motion controls. */
+/* The page effect respects reduced motion and pauses in background tabs. */
 @media(prefers-reduced-motion:no-preference) {
  .motion-ready .page-glow { animation:page-light 7s ease-in-out infinite alternate paused; }
  .motion-ready .page-glow-right { animation-delay:-7s; animation-direction:alternate-reverse; }
@@ -188,15 +181,9 @@ img { display:block; width:100%; height:auto; }
  .motion-ready .mirror-wall>span:nth-child(2),.motion-ready .mirror-wall>span:nth-child(2)::after { animation-delay:-2s; }
  .motion-ready .mirror-wall>span:nth-child(3),.motion-ready .mirror-wall>span:nth-child(3)::after { animation-delay:-4s; }
  .motion-ready .mirror-wall>span:nth-child(4),.motion-ready .mirror-wall>span:nth-child(4)::after { animation-delay:-6s; }
- .motion-ready .voice-wave span { animation:voice-wave 1.35s ease-in-out infinite alternate paused; }
- .motion-ready .voice-wave span:nth-child(2) { animation-duration:1.05s; animation-delay:-.4s; }
- .motion-ready .voice-wave span:nth-child(3) { animation-duration:1.65s; animation-delay:-.8s; }
- .motion-ready .voice-wave span:nth-child(4) { animation-duration:1.2s; animation-delay:-.2s; }
- .motion-ready .voice-wave span:nth-child(5) { animation-duration:1.5s; animation-delay:-.6s; }
- .motion-ready:not(.motion-paused):not(.page-hidden) .page-glow,
- .motion-ready:not(.motion-paused):not(.page-hidden) .mirror-wall>span,
- .motion-ready:not(.motion-paused):not(.page-hidden) .mirror-wall>span::after,
- .motion-ready:not(.motion-paused):not(.page-hidden) .voice-wave span { animation-play-state:running; }
+ .motion-ready:not(.page-hidden) .page-glow,
+ .motion-ready:not(.page-hidden) .mirror-wall>span,
+ .motion-ready:not(.page-hidden) .mirror-wall>span::after { animation-play-state:running; }
 }
 @keyframes page-light {
  from { opacity:.55; transform:translate3d(-3%,12%,0) scale(.95); }
@@ -210,11 +197,6 @@ img { display:block; width:100%; height:auto; }
  from { opacity:.25; transform:translateX(-35%); }
  to { opacity:.85; transform:translateX(35%); }
 }
-@keyframes voice-wave {
- from { transform:scaleY(.4); opacity:.55; }
- to { transform:scaleY(1); opacity:1; }
-}
-html.motion-paused { scroll-behavior:auto; }
 @media(min-width:1500px) { .hero { gap:100px; padding-block:64px 80px; } }
 @media(max-width:1100px) {
  .container { width:calc(100% - 72px); }
@@ -263,7 +245,6 @@ html.motion-paused { scroll-behavior:auto; }
  .mirror-wall { width:58vw; }
  .mirror-wall-left { left:-28vw; }
  .mirror-wall-right { right:-28vw; }
- .page-motion-toggle { right:14px; bottom:max(14px,env(safe-area-inset-bottom)); }
  html { scroll-padding-top:90px; }
  .container { width:calc(100% - 40px); }
  .section-space { padding-block:64px; }
@@ -352,9 +333,8 @@ html.motion-paused { scroll-behavior:auto; }
  :root { --bg:white; --surface:white; --ink:#111; --muted:#333; --accent:#5925a6; --line:#bbb; }
  body { color:var(--ink); background:white; }
  .site-header { position:static; background:white; }
- .menu-toggle,.expand-rules,.copy-email,.hero-art,.work-wave,.motion-toggle,.page-atmosphere { display:none!important; }
+ .menu-toggle,.expand-rules,.copy-email,.hero-art,.work-wave,.page-atmosphere { display:none!important; }
  .boundaries,.support,.values-band { background:white; }
- .site-footer { padding-bottom:0; }
  .hero,.boundaries-layout,.work-layout { display:block; }
  .section-space,.hero { padding-block:24px; }
  .hero h1 { font-size:64px; }

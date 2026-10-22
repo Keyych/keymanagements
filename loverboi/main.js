@@ -111,10 +111,7 @@ if ('IntersectionObserver' in window) {
 
 // Content stays visible by default. Motion is an enhancement, never a loading gate.
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-const motionToggle = document.querySelector('.motion-toggle');
-const motionLabel = motionToggle.querySelector('.motion-label');
 const activeEntrances = new Map();
-let motionPaused = false;
 
 function finishEntrances() {
   activeEntrances.forEach((animation) => animation.finish());
@@ -123,16 +120,9 @@ function finishEntrances() {
 function updateMotion() {
   const reduced = motionPreference.matches;
   document.documentElement.classList.toggle('motion-ready', !reduced);
-  document.documentElement.classList.toggle('motion-paused', reduced || motionPaused);
-  motionToggle.hidden = reduced;
-  motionLabel.textContent = motionPaused ? 'Play motion' : 'Pause motion';
-  if (reduced || motionPaused) finishEntrances();
+  if (reduced) finishEntrances();
 }
 
-motionToggle.addEventListener('click', () => {
-  motionPaused = !motionPaused;
-  updateMotion();
-});
 motionPreference.addEventListener('change', updateMotion);
 updateMotion();
 
@@ -161,7 +151,7 @@ if ('IntersectionObserver' in window) {
       entries.forEach(({ target, isIntersecting }) => {
         if (!isIntersecting) return;
         entranceObserver.unobserve(target);
-        if (motionPreference.matches || motionPaused || document.hidden || target.contains(document.activeElement)) return;
+        if (motionPreference.matches || document.hidden || target.contains(document.activeElement)) return;
         const animation = target.animate([
           { opacity: 0, transform: 'translateY(24px)' },
           { opacity: 1, transform: 'translateY(0)' }

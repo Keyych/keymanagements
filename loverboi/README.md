@@ -20,7 +20,7 @@ Deploy the contents of `loverboi/` as the site's document root.
 - JavaScript adds mobile navigation, expand/collapse all, active-section navigation, printing of all rules, and email copying with error feedback.
 - Content, disclosure groups, and links work without JavaScript. Clipboard controls only appear in secure browser contexts that support them.
 - Reduced-motion preferences are respected. Interactive controls have keyboard focus indicators.
-- A fixed, page-wide house-of-mirrors background combines moving glass panels and brighter violet light behind every section. The portrait stays still. Motion pauses in background tabs; a floating control lets visitors pause or resume decorative motion from anywhere on the page. One-time scroll entrances remain.
+- A fixed, page-wide house-of-mirrors background combines moving glass panels and brighter violet light behind every section. The portrait stays still. Motion runs automatically and pauses in background tabs. The device’s reduced-motion preference disables the animation. One-time scroll entrances remain.
 - Motion uses CSS and the native Web Animations API without a library. Content remains visible without JavaScript; reduced-motion settings disable animations, including when changed during a visit. Keyboard focus and printing finish any active entrances immediately.
 - Services remain marked as coming soon; no booking or payment processing is implemented.
 
