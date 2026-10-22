@@ -24,4 +24,4 @@ Checked JavaScript syntax, local references and anchor targets, email-draft enco
 
 ## Color palette
 
-Gunmetal surfaces, silver text and ornament, and brushed-silver buttons. Artwork is displayed in grayscale through CSS to match the site palette.
+Warm ivory text, crimson accents, and full-color gothic artwork. This shares its layout and content with the gunmetal-and-silver version at `nox.keymanagements.org`.
