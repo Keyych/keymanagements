@@ -10,9 +10,10 @@ From the repository root, run `python3 -m http.server 4350 --bind 127.0.0.1 --di
 
 ## Design
 
-An emerald, ivory, and antique-gold editorial layout with original hero, recording-studio, and royal-emblem artwork. Text remains live HTML; images retain their aspect ratios, with responsive cropping in the hero. Game posters use original SVG and CSS graphics. The old site artwork is retained on disk but is not referenced by the page.
+An emerald, muted forest, olive, and antique-gold editorial layout with original hero, recording-studio, and royal-emblem artwork. Text remains live HTML; images retain their aspect ratios, with responsive cropping in the hero. Game posters use original SVG and CSS graphics. The old site artwork is retained on disk but is not referenced by the page.
 
 - Responsive navigation, keyboard dismissal, native service disclosures, and reduced-motion support.
+- Atmospheric forest sway, drifting leaves, and fractal mist flowing beyond the hero into the page. The portrait stays fixed. The pause control persists the visitor's choice; reduced motion and hidden tabs stop the animation, and offscreen scenery pauses automatically.
 - Cash App support links to `https://cash.app/$blackhound55`.
 - No phone number, email address, WhatsApp link, contact form, or contact placeholder.
 - Voice samples remain pending; no sample playback is advertised.

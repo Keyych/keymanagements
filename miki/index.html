@@ -16,8 +16,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="preload" href="img/hero-original.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="atmosphere.css">
 <script src="main.js" defer>
 </script>
+<script src="atmosphere.js" defer></script>
 <title>Miki — King of Beans</title>
 </head>
 <body>
@@ -65,9 +67,13 @@
 </header>
 <main id="main">
 <section class="hero" id="top" aria-labelledby="hero-title">
+<div class="hero-scene">
 <img class="hero-image" src="img/hero-original.webp" width="1536" height="1024" alt="Original artwork of Miki in a black cloak and gold-edged mask, overlooking a misty gothic kingdom" fetchpriority="high">
+<img class="hero-image forest-breath" src="img/hero-original.webp" width="1536" height="1024" alt="" aria-hidden="true">
+</div>
 <div class="hero-shade" aria-hidden="true">
 </div>
+<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="hero-content container">
 <p class="eyebrow light">
 <span>
@@ -368,6 +374,9 @@
 </div>
 </section>
 </main>
+<div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
+<div class="wind-leaves" aria-hidden="true"></div>
+<button class="atmosphere-toggle" type="button" aria-pressed="false" aria-label="Pause atmospheric animation" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h12c4 0 4-5 1-5-2 0-2 1-2 2M3 12h16M3 16h10c4 0 4 5 1 5-2 0-2-1-2-2"/></svg><span>Pause mist</span></button>
 <footer class="site-footer">
 <div class="container">
 <div class="footer-top">
