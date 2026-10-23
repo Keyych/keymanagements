@@ -24,3 +24,7 @@ Use case: stylized-concept. Create an original dark fantasy heraldic still life 
 ## Supplied game bean
 
 `img/bean-original.gif` is an unchanged copy of the user-supplied `ezgif-5f479acbc8954a1c.gif` (640 × 640, 8 frames). `img/bean-still.png` is its first frame converted with `sips` for reduced motion. Color variants are applied at display time with CSS filters; the source artwork and animation are preserved.
+
+## Separate chapter pages
+
+See [CHAPTER-ARTWORK.md](CHAPTER-ARTWORK.md) for the five new Miki scenes, saved file paths, character reference, complete prompts, and studio correction.

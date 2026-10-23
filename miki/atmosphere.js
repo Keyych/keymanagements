@@ -25,7 +25,7 @@
   }
 
   const regions = [document.querySelector('.hero')];
-  document.querySelectorAll('.voice-section, .games-section, .digital-section, .court-section').forEach(section => {
+  document.querySelectorAll('.voice-section, .games-section, .digital-section, .court-section, .chapter-directory, .chapter-page .support-section').forEach(section => {
     const haze = document.createElement('div');
     haze.className = 'section-mist';
     haze.setAttribute('aria-hidden', 'true');

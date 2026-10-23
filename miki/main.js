@@ -1,3 +1,9 @@
+// Keep links shared before the chapters split useful.
+if (location.pathname === '/' || location.pathname === '/index.html') {
+  const chapters = {voice: 'voice', games: 'games', digital: 'studio', court: 'court', support: 'support'};
+  const chapter = chapters[location.hash.slice(1)];
+  if (chapter) location.replace(`/${chapter}/`);
+}
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navigation');
 function closeMenu(returnFocus = false) {
