@@ -10,7 +10,7 @@ From the repository root, run `python3 -m http.server 4347 --directory astra`.
 
 ## Design and content
 
-Astra’s celestial identity is presented in charcoal, silver, and muted violet, with restrained gothic arches and ornament inspired by the Nox talent page. There are no snake assets or snake animations. Her five boundaries, VA email (`xx.astra.va@gmail.com`), Cash App (`$xxastra`), and management links are preserved. The enquiry form opens a prefilled email draft; nothing is sent automatically.
+Astra shares Nox’s gothic atmosphere while using her own midnight-blue and deep-purple palette, a portrait-first hero with a lunar oval frame, a spacious serif title, moon-phase dividers, and alternating editorial sections. The small gothic wordmark provides a visual connection to the other talent pages. There are no snake assets or snake animations. Her five boundaries, VA email (`xx.astra.va@gmail.com`), Cash App (`$xxastra`), and management links are preserved. The enquiry form opens a prefilled email draft; nothing is sent automatically.
 
 Two new character portraits were generated from the supplied references with the built-in image tool: `assets/astra-gothic-hero.webp` and `assets/astra-gothic-studio.webp`. `assets/astra-moonlit.webp` is the supplied snake-free balcony portrait, resized and converted for the web. The three WebP assets total approximately 506 KB. Original PNGs are retained separately in the workspace’s `astra-artwork` folder.
 
