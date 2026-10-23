@@ -3,318 +3,385 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Miki, King of the Bean Kingdom: voice actor, maker of the bean games, and owner of Beans Digital.">
-<link rel="icon" type="image/png" href="img/bean.png">
-<title>Miki, King of Beans</title>
+<meta name="theme-color" content="#101b18">
+<meta name="description" content="Enter Miki’s Bean Kingdom. Voice actor, creator of the Bean Games, and the mind behind Beans Digital. A voice. A world. A little chaos.">
+<meta property="og:title" content="Miki — King of Beans">
+<meta property="og:description" content="A voice. A world. A little chaos. Enter the Bean Kingdom.">
+<meta property="og:image" content="https://miki.keymanagements.org/img/hero-original.webp">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://miki.keymanagements.org/">
+<link rel="icon" href="img/crown.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Silkscreen&display=swap">
-<style>
-/* Layout: a throne-room scroll — crowned hero with Miki standing at the right, then chambers (Voice, Games, Beans Digital, Court) separated by key-and-chain dividers. Deliberately single dark theme, taken from his crest art. */
-:root {
-  --ink: #0d0b0a;          /* page ground, warm black */
-  --ink-2: #16120f;        /* raised chamber */
-  --parchment: #e9dcc4;    /* body text, aged paper */
-  --muted: #a89a84;        /* secondary text */
-  --brass: #c49a5a;        /* crown + key metal */
-  --blood: #8f2a28;        /* roses, wax seals */
-  --bean: #8e3d33;         /* the pixel bean's red */
-  --line: rgba(196,154,90,.28);
-  --display: "Cinzel", "Trajan Pro", Georgia, serif;
-  --body: "EB Garamond", Garamond, "Times New Roman", serif;
-  --pixel: "Silkscreen", ui-monospace, "Courier New", monospace;
-  color-scheme: dark;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
-body {
-  background: var(--ink);
-  color: var(--parchment);
-  font-family: var(--body);
-  font-size: 1.125rem;
-  line-height: 1.6;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 75% 0%, rgba(143,42,40,.16), transparent 70%),
-    radial-gradient(ellipse 60% 40% at 0% 100%, rgba(196,154,90,.07), transparent 70%);
-  background-attachment: fixed;
-}
-a { color: var(--brass); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
-.wrap {
-  max-width: 1120px; margin: 0 auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: .02em; }
-p { margin: 0; }
-.eyebrow { font-family: var(--display); font-size: .78rem; letter-spacing: .32em; text-transform: uppercase; color: var(--brass); }
-.pix { font-family: var(--pixel); letter-spacing: .04em; }
-
-/* NAV */
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--ink); }
-nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: rgba(13,11,10,.86); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-nav.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
-.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 700; letter-spacing: .28em; color: var(--parchment); text-decoration: none; }
-.brand img { width: 28px; height: 28px; image-rendering: pixelated; }
-nav.top ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-nav.top ul a { font-family: var(--display); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; color: var(--muted); transition: color .2s; }
-nav.top ul a:hover { color: var(--brass); }
-
-/* HERO */
-.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; align-items: end; gap: 24px; padding-block: 56px 0; }
-.hero-copy { display: flex; flex-direction: column; gap: 22px; padding-bottom: 72px; min-width: 0; }
-.crown { width: 74px; color: var(--brass); }
-.hero h1 { font-size: clamp(3rem, 8vw, 6.2rem); font-weight: 900; line-height: .92; letter-spacing: .06em; }
-.hero h1 span { display: block; font-size: .34em; font-weight: 500; letter-spacing: .3em; color: var(--brass); margin-top: 14px; }
-.hero .lede { font-size: 1.3rem; max-width: 34ch; color: var(--parchment); }
-.titles { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 0; }
-.titles li { font-family: var(--display); font-size: .74rem; letter-spacing: .2em; text-transform: uppercase; border: 1px solid var(--line); padding: 8px 14px; color: var(--parchment); }
-.motto { font-family: var(--display); font-size: .8rem; letter-spacing: .34em; color: var(--muted); }
-.hero-figure { position: relative; display: flex; justify-content: center; min-width: 0; }
-.hero-figure::before { content: ""; position: absolute; bottom: 4%; left: 50%; width: 82%; aspect-ratio: 1; max-width: 100%; transform: translateX(-50%); border-radius: 50%; border: 1px solid var(--line); box-shadow: inset 0 0 80px rgba(143,42,40,.25); }
-.hero-figure img { position: relative; width: auto; height: auto; max-height: 640px; max-width: 100%; display: block; filter: drop-shadow(0 20px 40px rgba(0,0,0,.6)); animation: rise 1.1s ease-out both; }
-@keyframes rise { from { transform: translateY(18px); opacity: .4; } to { transform: none; opacity: 1; } }
-
-/* DIVIDER */
-.divider { display: flex; align-items: center; gap: 14px; color: var(--brass); }
-.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
-.divider svg { width: 54px; height: 18px; flex: none; }
-
-/* CHAMBERS */
-section.chamber { padding-block: 88px; }
-.chamber-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; max-width: 640px; }
-.chamber-head h2 { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; }
-.chamber-head p { color: var(--muted); }
-
-/* VOICE */
-.voice-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
-.framed { border: 1px solid var(--line); padding: 10px; background: var(--ink-2); max-width: 100%; }
-.framed img { display: block; width: 100%; }
-.voice-copy { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
-.voice-copy blockquote { margin: 0; font-style: italic; font-size: 1.35rem; color: var(--parchment); border-left: 2px solid var(--blood); padding-left: 18px; }
-.pending { font-family: var(--display); font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--line); padding: 12px 16px; align-self: flex-start; }
-
-/* GAMES */
-.games { background: var(--ink-2); border-block: 1px solid var(--line); }
-.games .chamber-head h2 { font-family: var(--pixel); font-weight: 400; letter-spacing: .02em; }
-.game-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; }
-.game { display: flex; flex-direction: column; gap: 16px; padding: 28px; border: 2px solid var(--bean); background: var(--ink); box-shadow: 6px 6px 0 var(--bean); }
-.game-art { height: 120px; display: flex; align-items: center; gap: 6px; }
-.game-art img { width: 56px; height: 56px; image-rendering: pixelated; }
-.game-art .tail { width: 40px; height: 40px; background: var(--bean); opacity: .75; }
-.game-art .tail:nth-child(3) { opacity: .55; }
-.game-art .tail:nth-child(4) { opacity: .35; }
-.crush-art { display: grid; grid-template-columns: repeat(5, 40px); gap: 6px; height: auto; }
-.crush-art img { width: 40px; height: 40px; }
-.crush-art img.alt { filter: hue-rotate(35deg) saturate(1.3); }
-.crush-art img.dim { opacity: .35; }
-.game h3 { font-family: var(--pixel); font-weight: 400; font-size: 1.5rem; }
-.game p { color: var(--muted); }
-.game .where { font-family: var(--pixel); font-size: .78rem; color: var(--parchment); }
-.btn { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; font-family: var(--display); font-size: .78rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; padding: 12px 20px; border: 1px solid var(--brass); color: var(--ink); background: var(--brass); transition: background .2s, color .2s; cursor: pointer; }
-.btn:hover { background: transparent; color: var(--brass); }
-.btn.ghost { background: transparent; color: var(--brass); }
-.btn.ghost:hover { background: var(--brass); color: var(--ink); }
-.game .btn { font-family: var(--pixel); font-weight: 400; letter-spacing: .06em; border-color: var(--bean); background: var(--bean); color: var(--parchment); }
-.game .btn:hover { background: transparent; color: var(--parchment); }
-
-/* BEANS DIGITAL */
-.bd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.bd-intro { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
-.bd-mark { display: flex; align-items: center; gap: 14px; }
-.bd-mark img { width: 64px; height: 64px; image-rendering: pixelated; }
-.bd-mark span { font-family: var(--pixel); font-size: 1.6rem; }
-.services { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-.services li { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; padding: 20px 0; border-bottom: 1px solid var(--line); }
-.services h3 { font-size: 1.15rem; font-weight: 500; }
-.services p { color: var(--muted); font-size: 1rem; grid-column: 1 / -1; }
-.services .q { font-family: var(--display); font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); }
-.wa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 18px; border: 1px solid var(--line); background: var(--ink-2); }
-.wa .num { font-family: var(--display); font-size: 1.15rem; letter-spacing: .08em; user-select: all; }
-.wa .label { width: 100%; font-family: var(--display); font-size: .7rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
-.copy { font-family: var(--display); font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; background: transparent; color: var(--brass); border: 1px solid var(--line); padding: 8px 12px; cursor: pointer; }
-.copy:hover { border-color: var(--brass); }
-
-/* COURT */
-.court { background: #000; border-block: 1px solid var(--line); }
-.court-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
-.court-grid img { width: 100%; display: block; }
-.court-copy { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.court-copy h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
-.court-copy .amp { color: var(--blood); }
-.court-copy p { color: var(--muted); }
-
-/* ARCHIVE */
-.archive-grid { display: grid; grid-template-columns: 1fr; gap: 24px; max-width: 560px; }
-.archive-grid figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
-.archive-grid figcaption { font-family: var(--display); font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
-
-footer { border-top: 1px solid var(--line); }
-footer .wrap { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; color: var(--muted); font-size: .95rem; }
-footer .motto { color: var(--brass); }
-
-@media (max-width: 820px) {
-  .hero .wrap, .voice-grid, .bd-grid, .court-grid, .game-grid { grid-template-columns: 1fr; }
-  .hero-copy { padding-bottom: 8px; }
-  .hero-figure img { max-height: 460px; }
-  nav.top ul { gap: 14px; }
-  section.chamber { padding-block: 64px; }
-}
-@media (max-width: 480px) {
-  .archive-grid { grid-template-columns: 1fr; }
-  .crush-art { grid-template-columns: repeat(5, minmax(0, 36px)); }
-  .crush-art img { width: 36px; height: 36px; }
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+<link rel="preload" href="img/hero-original.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer>
+</script>
+<title>Miki — King of Beans</title>
 </head>
 <body>
-
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="key" viewBox="0 0 54 18"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="9" r="5.5"/><circle cx="8" cy="9" r="2"/><path d="M13.5 9H50M42 9v5M47 9v4"/></g></symbol>
+<a class="skip-link" href="#main">Skip to content</a>
+<svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<symbol id="crown" viewBox="0 0 32 28">
+<path d="m3 7 6 6 7-10 7 10 6-6-3 15H6L3 7Z"/>
+<path d="M7 26h18"/>
+</symbol>
+<symbol id="arrow" viewBox="0 0 24 24">
+<path d="M5 12h14m-6-6 6 6-6 6"/>
+</symbol>
+<symbol id="arrow-up" viewBox="0 0 24 24">
+<path d="M5 19 19 5M5 5h14v14"/>
+</symbol>
+<symbol id="spark" viewBox="0 0 24 24">
+<path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/>
+</symbol>
 </svg>
-
-<nav class="top" aria-label="Main">
-  <div class="wrap">
-    <a class="brand" href="#top"><img src="img/bean.png" alt="">MIKI</a>
-    <ul>
-      <li><a href="#voice">Voice</a></li>
-      <li><a href="#games">Bean Games</a></li>
-      <li><a href="#digital">Beans Digital</a></li>
-      <li><a href="#court">The Court</a></li>
-    </ul>
-  </div>
+<header class="site-header">
+<div class="nav-shell">
+<a class="brand" href="#top" aria-label="Miki home">
+<svg class="icon">
+<use href="#crown"/>
+</svg>
+<span>MIKI<span class="brand-sub">THE BEAN KINGDOM</span>
+</span>
+</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">
+<span class="menu-label">Menu</span>
+<span class="menu-lines" aria-hidden="true">
+</span>
+</button>
+<nav id="navigation" aria-label="Main navigation">
+<a href="#voice">The voice</a>
+<a href="#games">The games</a>
+<a href="#digital">The studio</a>
+<a href="#court">The court</a>
+<a class="nav-support" href="#support">Support the kingdom <svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
 </nav>
-
-<header class="hero" id="top">
-  <div class="wrap">
-    <div class="hero-copy">
-      <svg class="crown" viewBox="0 0 74 40" aria-hidden="true"><path d="M4 36 L8 10 L22 24 L37 4 L52 24 L66 10 L70 36 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 36H70" stroke="currentColor" stroke-width="2"/><circle cx="37" cy="4" r="2.4" fill="currentColor"/><circle cx="8" cy="10" r="2" fill="currentColor"/><circle cx="66" cy="10" r="2" fill="currentColor"/></svg>
-      <p class="eyebrow">The Bean Kingdom</p>
-      <h1>MIKI<span>King of Beans</span></h1>
-      <p class="lede">Voice actor, maker of the bean games, and the owner of Beans Digital, where websites get built for businesses.</p>
-      <ul class="titles" aria-label="Titles">
-        <li>Voice Actor</li>
-        <li>Bean Game Maker</li>
-        <li>Owner, Beans Digital</li>
-      </ul>
-      <p class="motto">ONE KEY. ONE ANCHOR. ONE CHAOS.</p>
-    </div>
-    <div class="hero-figure">
-      <img src="img/miki.webp" alt="Miki in a tattered black robe, metal half-face mask and key pendant" width="1024" height="1536">
-    </div>
-  </div>
+</div>
 </header>
-
-<div class="wrap"><div class="divider" aria-hidden="true"><svg><use href="#key"/></svg></div></div>
-
-<section class="chamber" id="voice">
-  <div class="wrap voice-grid">
-    <div class="framed"><img src="img/ink.webp" alt="Ink-wash portrait of Miki in his mask beside a rainy canal town" width="1149" height="1369" ></div>
-    <div class="voice-copy">
-      <p class="eyebrow">Chamber I</p>
-      <h2>The Voice Behind the Mask</h2>
-      <p>The mask covers his face, so the voice does the work. Miki brings characters to life for scripts, stories and the bean kingdom's own content.</p>
-      <blockquote>He speaks, and the kingdom listens.</blockquote>
-      <p class="pending">Booking details and voice samples coming soon</p>
-    </div>
-  </div>
+<main id="main">
+<section class="hero" id="top" aria-labelledby="hero-title">
+<img class="hero-image" src="img/hero-original.webp" width="1536" height="1024" alt="Original artwork of Miki in a black cloak and gold-edged mask, overlooking a misty gothic kingdom" fetchpriority="high">
+<div class="hero-shade" aria-hidden="true">
+</div>
+<div class="hero-content container">
+<p class="eyebrow light">
+<span>
+</span> Welcome to the Bean Kingdom</p>
+<h1 id="hero-title">MIKI<span>King of <em>Beans.</em>
+</span>
+</h1>
+<p class="hero-intro">A voice behind the mask.<br>A world beyond the ordinary.</p>
+<p class="hero-detail">Voice actor. Game maker. Creative mind.<br>One kingdom. A little bit of chaos.</p>
+<div class="hero-actions">
+<a class="button button-gold" href="#voice">Enter the kingdom <svg class="icon">
+<use href="#arrow"/>
+</svg>
+</a>
+<a class="text-link" href="#games">Play the games <svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+</div>
+</div>
+<div class="hero-footer container">
+<span class="mono">ONE KEY. ONE ANCHOR. ONE CHAOS.</span>
+<a href="#voice" class="scroll-cue">Scroll to discover <span aria-hidden="true">↓</span>
+</a>
+</div>
 </section>
-
-<section class="chamber games" id="games">
-  <div class="wrap">
-    <div class="chamber-head">
-      <p class="eyebrow">Chamber II</p>
-      <h2>The Bean Games</h2>
-      <p>Two games out so far, both playable on mini-beans.com.</p>
-    </div>
-    <div class="game-grid">
-      <article class="game">
-        <div class="game-art" aria-hidden="true"><img src="img/bean.png" alt=""><span class="tail"></span><span class="tail"></span><span class="tail"></span></div>
-        <h3>Bean Snake</h3>
-        <p>Guide the bean and grow the line. Classic snake, kingdom rules.</p>
-        <p class="where">Web + Apple App Store</p>
-        <a class="btn" href="https://mini-beans.com/bean-snake/" target="_blank" rel="noopener">Play Bean Snake</a>
-      </article>
-      <article class="game">
-        <div class="game-art crush-art" aria-hidden="true">
-          <img src="img/bean.png" alt=""><img class="alt" src="img/bean.png" alt=""><img src="img/bean.png" alt=""><img class="dim" src="img/bean.png" alt=""><img class="alt" src="img/bean.png" alt="">
-        </div>
-        <h3>Bean Crush</h3>
-        <p>Line up the beans and crush them. A match game for the whole kingdom.</p>
-        <p class="where">Web</p>
-        <a class="btn" href="https://mini-beans.com/bean-crush/" target="_blank" rel="noopener">Play Bean Crush</a>
-      </article>
-    </div>
-  </div>
+<div class="realm-index" aria-label="Explore Miki’s work">
+<div class="container realm-links">
+<a href="#voice">
+<span class="mono">01 /</span>
+<span>Stories with a voice</span>
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+<a href="#games">
+<span class="mono">02 /</span>
+<span>A kingdom at play</span>
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+<a href="#digital">
+<span class="mono">03 /</span>
+<span>Ideas made real</span>
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+</div>
+</div>
+<section id="voice" class="voice-section paper section" aria-labelledby="voice-title">
+<div class="container voice-layout">
+<figure class="voice-art reveal">
+<div class="arch-image">
+<img src="img/voice-original.webp" width="1122" height="1402" alt="Original artwork of a brass studio microphone, green velvet curtains, and an antique key" loading="lazy">
+</div>
+<figcaption>
+<span class="mono">THE VOICE / MIKI</span>
+<svg class="icon">
+<use href="#spark"/>
+</svg>
+</figcaption>
+</figure>
+<div class="voice-copy reveal">
+<p class="eyebrow">01 / The voice</p>
+<h2 id="voice-title">You don’t need<br> to see a face<br>to <em>feel a story.</em>
+</h2>
+<p>The mask is part of the mystery. The voice is where it comes alive. Miki brings characters, scripts, and stories into the world of the Bean Kingdom.</p>
+<blockquote>“He speaks, and the kingdom listens.”</blockquote>
+<div class="voice-note">
+<span class="status-dot" aria-hidden="true">
+</span>
+<span>Voice reel coming soon</span>
+<span class="mono">STAY TUNED</span>
+</div>
+</div>
+</div>
 </section>
-
-<section class="chamber" id="digital">
-  <div class="wrap bd-grid">
-    <div class="bd-intro">
-      <p class="eyebrow">Chamber III</p>
-      <div class="bd-mark"><img src="img/bean.png" alt="Beans Digital pixel bean logo"><span>Beans Digital</span></div>
-      <h2>Websites, by royal order</h2>
-      <p>Miki owns Beans Digital, a studio that builds websites and apps for businesses. Every quote is based on what your business needs, so there are no fixed prices. Message on WhatsApp to start.</p>
-      <div class="wa">
-        <span class="label">WhatsApp</span>
-        <span class="num" id="wa-num">+971 54 445 5405</span>
-        <button class="copy" type="button" id="copy-wa">Copy number</button>
-      </div>
-      <a class="btn ghost" href="https://testpage.online" target="_blank" rel="noopener">View client previews</a>
-    </div>
-    <ul class="services">
-      <li><h3>Website request</h3><span class="q">Quote on request</span><p>A site built around your business, shown to you first before it goes live on your domain.</p></li>
-      <li><h3>Website + Application</h3><span class="q">Quote on request</span><p>The website plus an app to go with it.</p></li>
-      <li><h3>Application</h3><span class="q">Quote on request</span><p>An app on its own, built to your requirements.</p></li>
-    </ul>
-  </div>
+<section id="games" class="games-section section" aria-labelledby="games-title">
+<div class="container">
+<div class="section-heading reveal">
+<div>
+<p class="eyebrow">02 / The games</p>
+<h2 id="games-title">Small beans.<br>
+<em>Big distractions.</em>
+</h2>
+</div>
+<p>Made by Miki. Played by the kingdom.<br>Pick your game and make yourself at home.</p>
+</div>
+<div class="games-grid">
+<article class="game-card snake-card reveal">
+<a class="game-visual snake-visual" href="https://mini-beans.com/bean-snake/" target="_blank" rel="noopener noreferrer" aria-label="Play Bean Snake on mini-beans.com (opens in a new tab)">
+<span class="game-badge mono">01 — ARCADE</span>
+<span class="game-poster-title">BEAN<br>
+<span>SNAKE</span>
+</span>
+<svg class="snake-illustration" viewBox="0 0 420 240" aria-hidden="true">
+<defs>
+<pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+<path d="M30 0H0v30" fill="none" stroke="#c5dfb2" stroke-opacity=".09"/>
+</pattern>
+</defs>
+<path fill="url(#grid)" d="M0 0h420v240H0z"/>
+<path d="M70 173h154v-60h92" stroke="#a8c987" stroke-width="37" fill="none" stroke-linejoin="round"/>
+<path d="M70 174h151v-58h94" stroke="#d4e6aa" stroke-width="3" fill="none" stroke-dasharray="3 22"/>
+<g transform="translate(292 86)">
+<path d="M8 0h35v7h8v39h-8v7H8v-7H0V7h8Z" fill="#d8e8b9"/>
+<path d="M29 13h6v7h-6zm12 0h6v7h-6z" fill="#193126"/>
+<path d="M34 30h9" stroke="#193126" stroke-width="4"/>
+</g>
+<g transform="translate(357 98)">
+<path d="M0 9h7V2h18v7h7v18h-7v7H7v-7H0Z" fill="#dc916d"/>
+<path d="M14 0v-7h9" stroke="#c4d590" stroke-width="4"/>
+</g>
+<path d="m72 53 4 11 11 4-11 4-4 11-4-11-11-4 11-4Z" fill="#c9dba5"/>
+</svg>
+<span class="poster-caption mono">ONE MORE BEAN. ONE MORE ROUND.</span>
+<span class="game-open">
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</span>
+</a>
+<div class="game-info">
+<div>
+<h3>Bean Snake</h3>
+<p>Guide the bean. Grow the line.<br>The classic, with a kingdom twist.</p>
+</div>
+<a class="round-link" href="https://mini-beans.com/bean-snake/" target="_blank" rel="noopener noreferrer" aria-label="Play Bean Snake (opens in a new tab)">
+<svg class="icon">
+<use href="#arrow"/>
+</svg>
+</a>
+</div>
+<p class="game-platform mono">PLAY ON THE WEB · ALSO ON THE APP STORE</p>
+</article>
+<article class="game-card crush-card reveal">
+<a class="game-visual crush-visual" href="https://mini-beans.com/bean-crush/" target="_blank" rel="noopener noreferrer" aria-label="Play Bean Crush on mini-beans.com (opens in a new tab)">
+<span class="game-badge mono">02 — PUZZLE</span>
+<span class="game-poster-title">BEAN<br>
+<span>CRUSH</span>
+</span>
+<div class="crush-board" aria-hidden="true">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</div>
+<span class="poster-caption mono">A PERFECT MATCH. A LITTLE CHAOS.</span>
+<span class="game-open">
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</span>
+</a>
+<div class="game-info">
+<div>
+<h3>Bean Crush</h3>
+<p>Match them. Crush them. Repeat.<br>A little colour for the whole kingdom.</p>
+</div>
+<a class="round-link" href="https://mini-beans.com/bean-crush/" target="_blank" rel="noopener noreferrer" aria-label="Play Bean Crush (opens in a new tab)">
+<svg class="icon">
+<use href="#arrow"/>
+</svg>
+</a>
+</div>
+<p class="game-platform mono">PLAY ON THE WEB</p>
+</article>
+</div>
+<a class="all-games text-link" href="https://mini-beans.com" target="_blank" rel="noopener noreferrer">Discover mini-beans.com <svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+</div>
 </section>
-
-<section class="chamber court" id="court">
-  <div class="wrap court-grid">
-    <img src="img/crest.webp" alt="Key and Miki crest: the queen and king beneath a crown, with keys, chains and roses" width="1254" height="1254" >
-    <div class="court-copy">
-      <p class="eyebrow">The Court</p>
-      <h2>Key <span class="amp">&amp;</span> Miki</h2>
-      <p>The bean kingdom has a queen and a king. Key the Queen rules beside Miki, and the two of them front the kingdom together.</p>
-      <p class="motto">ONE KEY. ONE ANCHOR. ONE CHAOS.</p>
-      <a class="btn ghost" href="https://keymanagements.org" target="_blank" rel="noopener">Visit Key</a>
-    </div>
-  </div>
+<section id="digital" class="digital-section paper section" aria-labelledby="digital-title">
+<div class="container">
+<div class="studio-topline">
+<p class="eyebrow">03 / The studio</p>
+<span class="studio-wordmark">beans<span>digital</span>
+<svg class="icon">
+<use href="#spark"/>
+</svg>
+</span>
+</div>
+<div class="digital-layout">
+<div class="digital-copy reveal">
+<h2 id="digital-title">Good ideas<br>deserve a<br>
+<em>great website.</em>
+</h2>
+<p>Beyond the kingdom, Miki runs Beans Digital: websites and apps built around real businesses, their people, and what comes next.</p>
+<a class="button button-dark" href="https://testpage.online" target="_blank" rel="noopener noreferrer">Explore client previews <svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+</div>
+<div class="services reveal">
+<p class="services-intro mono">YOUR IDEA. BUILT WITH INTENTION.</p>
+<details open>
+<summary>
+<span class="service-number">01</span>
+<h3>Websites</h3>
+<span class="plus" aria-hidden="true">
+</span>
+</summary>
+<div class="service-description">
+<p>A home for your business on the web, designed around what you do. See your preview before it goes live on your domain.</p>
+<span class="mono">TAILORED TO YOUR BUSINESS</span>
+</div>
+</details>
+<details>
+<summary>
+<span class="service-number">02</span>
+<h3>Websites + apps</h3>
+<span class="plus" aria-hidden="true">
+</span>
+</summary>
+<div class="service-description">
+<p>A website and a companion application, shaped around the same business and the people who use it.</p>
+<span class="mono">ONE CONNECTED EXPERIENCE</span>
+</div>
+</details>
+<details>
+<summary>
+<span class="service-number">03</span>
+<h3>Applications</h3>
+<span class="plus" aria-hidden="true">
+</span>
+</summary>
+<div class="service-description">
+<p>A standalone application built to your requirements. Start with the idea; shape the experience around what it needs to do.</p>
+<span class="mono">BUILT AROUND YOUR REQUIREMENTS</span>
+</div>
+</details>
+<p class="quote-note">Every project is different. Every quote is tailored.</p>
+</div>
+</div>
+</div>
 </section>
-
-<section class="chamber" id="archive">
-  <div class="wrap">
-    <div class="chamber-head">
-      <p class="eyebrow">The Archive</p>
-      <h2>From the Kingdom</h2>
-    </div>
-    <div class="archive-grid">
-      <figure class="framed"><img src="img/sheet.webp" alt="Sketchbook fan sheet of Miki in a cap and mask, with notes and chibi drawings" width="1024" height="1536" ><figcaption>Fan sheet</figcaption></figure>
-    </div>
-  </div>
+<section id="court" class="court-section section" aria-labelledby="court-title">
+<div class="container court-layout">
+<div class="court-copy reveal">
+<p class="eyebrow">04 / The court</p>
+<h2 id="court-title">One kingdom.<br>
+<em>Two crowns.</em>
+</h2>
+<p class="royal-names">Key <span>&</span> Miki</p>
+<p>A queen and a king. Key rules beside Miki, and together they make the Bean Kingdom their own.</p>
+<a class="text-link" href="https://keymanagements.org" target="_blank" rel="noopener noreferrer">Meet the queen <svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</a>
+</div>
+<figure class="court-art reveal">
+<img src="img/court-original.webp" width="1536" height="1024" alt="Original royal emblem with a brass crown, crossed keys, and deep red roses" loading="lazy">
+<figcaption class="mono">ONE KEY. ONE ANCHOR. ONE CHAOS.</figcaption>
+</figure>
+</div>
 </section>
-
-<footer>
-  <div class="wrap">
-    <span>Miki &middot; King of the Bean Kingdom</span>
-    <span class="motto">COMMENT "BEANS"</span>
-  </div>
+<section id="support" class="support-section" aria-labelledby="support-title">
+<div class="container support-layout">
+<div>
+<p class="eyebrow">A little love goes a long way</p>
+<h2 id="support-title">Keep the kingdom<br>
+<em>creating.</em>
+</h2>
+<p>Enjoy the games, the stories, or just the chaos?<br>You can support Miki on Cash App.</p>
+</div>
+<a class="cash-card" href="https://cash.app/$blackhound55" target="_blank" rel="noopener noreferrer" aria-label="Support Miki on Cash App, $blackhound55 (opens in a new tab)">
+<span class="cash-top">
+<span class="cash-symbol" aria-hidden="true">$</span>
+<span class="mono">SUPPORT ON CASH APP</span>
+<svg class="icon">
+<use href="#arrow-up"/>
+</svg>
+</span>
+<span class="cash-handle">$blackhound55</span>
+<span class="cash-bottom">A gift to the kingdom <svg class="icon">
+<use href="#arrow"/>
+</svg>
+</span>
+</a>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-top">
+<a class="footer-brand" href="#top">MIKI<span>King of Beans</span>
+</a>
+<p>A voice. A world.<br>A little chaos.</p>
+<a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span>
+</a>
+</div>
+<div class="footer-bottom">
+<span>© <span id="year">2026</span> Miki · The Bean Kingdom</span>
+<span class="mono">BUILT WITH BEANS & A LITTLE CHAOS</span>
+</div>
+</div>
 </footer>
-
-<script>
-document.getElementById('copy-wa').addEventListener('click', function () {
-  var btn = this, txt = '+971544455405';
-  function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy number'; }, 1800); }
-  function fallback() {
-    var r = document.createRange(); r.selectNodeContents(document.getElementById('wa-num'));
-    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected');
-  }
-  try { navigator.clipboard.writeText(txt).then(function () { done('Copied'); }, fallback); } catch (e) { fallback(); }
-});
-</script>
-
 </body>
 </html>
