@@ -16,7 +16,7 @@
   <link rel="preload" href="assets/astra-gothic-hero.webp" as="image" fetchpriority="high">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="styles.css?v=20261023-coin-stars-1">
+  <link rel="stylesheet" href="styles.css?v=20261023-fixed-canopy-1">
   <script src="astra-gothic.js" defer></script>
   <noscript><style>@media(max-width:900px){.menu-toggle{display:none}#navigation{display:flex;position:static;flex-wrap:wrap;flex-direction:row;gap:14px;background:none;padding:0;border:0}.site-header{height:auto;flex-wrap:wrap;padding-block:18px}.nav-contact{margin:0}}</style></noscript>
 </head>
@@ -25,6 +25,26 @@
     <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></symbol>
     <symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
     <symbol id="star" viewBox="0 0 32 40"><path d="M16 1c0 14-3 18-14 19 11 1 14 5 14 19 0-14 3-18 14-19C19 19 16 15 16 1Z"/></symbol>
+    <symbol id="canopy-leaf" viewBox="0 0 100 130">
+      <path class="canopy-carving" d="M8 118C11 83 55 99 69 74 78 55 69 40 56 42 43 44 42 59 51 63 34 65 26 51 32 37 39 14 75 13 89 33 117 76 64 115 8 118Z"/>
+      <path class="canopy-carving" d="M14 110C9 83 2 71 10 53 17 37 33 34 43 36 27 49 35 68 14 110Z"/>
+      <path class="canopy-etch" d="M17 108C35 90 61 95 78 68 88 47 73 28 57 31M17 97C23 74 18 62 27 51"/>
+    </symbol>
+    <symbol id="canopy-side" viewBox="0 0 180 650">
+      <path class="canopy-carving" d="M86-10C62 35 74 80 95 112 118 147 116 194 93 226 74 252 77 298 94 329 115 365 107 401 91 430 72 463 83 506 93 530 100 551 99 580 90 610 77 579 79 555 70 530 55 482 62 452 73 427 89 395 91 367 75 339 51 299 54 252 77 215 96 181 98 150 76 120 52 82 53 33 86-10Z"/>
+      <path class="canopy-etch" d="M85 0C66 54 94 90 101 132S95 202 83 228 65 289 85 330 103 391 82 433 79 504 86 534 92 577 88 601"/>
+      <use href="#canopy-leaf" x="77" y="-9" width="100" height="130"/>
+      <use href="#canopy-leaf" x="80" y="110" width="83" height="108"/>
+      <use href="#canopy-leaf" x="75" y="246" width="91" height="119"/>
+      <use href="#canopy-leaf" x="78" y="389" width="72" height="94"/>
+      <path class="canopy-carving" d="M88 515C117 497 138 509 132 527 127 541 108 536 112 525 103 530 103 545 115 551 89 552 82 536 88 515Z"/>
+      <path class="canopy-etch" d="M86 217C122 215 139 224 132 240 128 250 114 245 118 236M87 369C118 365 132 378 124 389 120 397 109 393 112 385"/>
+      <circle class="canopy-bead" cx="92" cy="235" r="3"/><circle class="canopy-bead" cx="87" cy="382" r="2.5"/>
+    </symbol>
+    <symbol id="canopy-crown" viewBox="0 0 120 120">
+      <path class="canopy-carving" d="M60 106C44 91 39 77 25 78 7 80 3 63 14 55 22 49 33 57 28 64 44 65 44 49 31 45 13 39 21 15 38 19 53 23 48 39 43 43 56 41 58 27 60 13 62 27 64 41 77 43 72 39 67 23 82 19 99 15 107 39 89 45 76 49 76 65 92 64 87 57 98 49 106 55 117 63 113 80 95 78 81 77 76 91 60 106Z"/>
+      <path class="canopy-etch" d="M60 98V44M54 83C45 69 47 60 38 54M66 83C75 69 73 60 82 54"/><circle class="canopy-bead" cx="60" cy="77" r="4"/>
+    </symbol>
     <symbol id="ornament" viewBox="0 0 300 40"><path d="M0 20h115c16 0 27-5 35-18 8 13 19 18 35 18h115M150 2v36m-25-18c15 0 20 5 25 18 5-13 10-18 25-18M75 20c16 0 21-11 13-12-8-1-5 8 3 12m134 0c-16 0-21-11-13-12 8-1 5 8-3 12"/></symbol>
     <symbol id="moon-divider" viewBox="0 0 300 40"><path d="M0 20h106m88 0h106"/><circle cx="150" cy="20" r="13"/><path d="M121 10a11 11 0 1 0 0 20 14 14 0 0 1 0-20Zm58 0a11 11 0 1 1 0 20 14 14 0 0 0 0-20Z"/><path d="m77 17 3 3-3 3-3-3Zm146 0 3 3-3 3-3-3Z"/></symbol>
     <symbol id="heart" viewBox="0 0 32 32"><path d="M16 26 5 15C-2 7 9 1 16 9c7-8 18-2 11 6Z"/></symbol>
@@ -34,6 +54,17 @@
     <symbol id="link" viewBox="0 0 32 32"><path d="m13 11 4-4c8-8 16 0 8 8l-4 4m-2 2-4 4C7 33-1 25 7 17l4-4m0 8 10-10"/></symbol>
   </defs></svg>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="gothic-canopy" aria-hidden="true">
+    <div class="canopy-reveal">
+      <svg class="canopy-top" viewBox="0 0 1440 100" preserveAspectRatio="none"><path class="canopy-carving" d="M-20 24C170 22 240 57 360 43S600 14 720 47C840 14 960 29 1080 43S1270 22 1460 24V37C1270 35 1200 70 1080 56S840 27 720 60C600 27 480 42 360 56S170 35-20 37Z"/><path class="canopy-etch" d="M-20 31C170 29 240 64 360 50S600 21 720 54C840 21 960 36 1080 50S1270 29 1460 31"/></svg>
+      <svg class="canopy-side canopy-left" viewBox="0 0 180 650"><use href="#canopy-side"/></svg>
+      <svg class="canopy-side canopy-right" viewBox="0 0 180 650"><use href="#canopy-side"/></svg>
+      <svg class="canopy-crown" viewBox="0 0 120 120"><use href="#canopy-crown"/></svg>
+      <svg class="canopy-pendant pendant-left" viewBox="0 0 32 136"><path class="pendant-chain" d="M16 0v94"/><circle cx="16" cy="39" r="2"/><circle cx="16" cy="74" r="1.5"/><use href="#star" x="4" y="96" width="24" height="30"/></svg>
+      <svg class="canopy-pendant pendant-center" viewBox="0 0 32 136"><path class="pendant-chain" d="M16 0v94"/><circle cx="16" cy="39" r="2"/><use href="#star" x="4" y="96" width="24" height="30"/></svg>
+      <svg class="canopy-pendant pendant-right" viewBox="0 0 32 136"><path class="pendant-chain" d="M16 0v94"/><circle cx="16" cy="39" r="2"/><circle cx="16" cy="74" r="1.5"/><use href="#star" x="4" y="96" width="24" height="30"/></svg>
+    </div>
+  </div>
   <header class="site-header">
     <a class="wordmark" href="#top" aria-label="Astra home">Astra<span aria-hidden="true">.</span></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" type="button">Menu <span aria-hidden="true">+</span></button>
