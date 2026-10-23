@@ -14,7 +14,7 @@
   function resize() {
     width = window.innerWidth;
     height = window.innerHeight;
-    length = Math.min(896, height * 1.12);
+    length = Math.min(1792, height * 2.24);
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
@@ -56,7 +56,7 @@
     const mobile = width < 700;
     const scale = length / rig.rings[rig.rings.length - 1][6];
     const amplitude = mobile ? 24 : 42;
-    const edge = mobile ? 80 : Math.max(108, width * .07);
+    const edge = mobile ? 116 : Math.max(164, width * .085);
     const rail = edge;
     const frequency = .014;
     const slope = t => amplitude * frequency * Math.cos(t * frequency);
@@ -83,15 +83,16 @@
     });
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = 'high';
+    const margin = Math.max(45, 60 * scale);
     for (let i = sections.length - 2; i >= 0; i--) {
       const a = sections[i], b = sections[i + 1];
-      if (b.center.y < -45 || a.center.y > height + 45) continue;
+      if (b.center.y < -margin || a.center.y > height + margin) continue;
       drawTriangle([a.source[0], a.source[1], b.source[1]], [a.target[0], a.target[1], b.target[1]]);
       drawTriangle([a.source[0], b.source[1], b.source[0]], [a.target[0], b.target[1], b.target[0]]);
     }
     // The head is rigid, pointing along the same trail the body follows.
     const head = sections[0].center, neckX = rig.rings[0][0];
-    if (head.y > -40 && head.y < height + rig.neckY * scale + 40) {
+    if (head.y > -margin && head.y < height + rig.neckY * scale + margin) {
       context.save();
       context.transform(head.nx * scale, head.ny * scale, head.tx * scale, head.ty * scale,
         head.x - (neckX * head.nx + rig.neckY * head.tx) * scale,
