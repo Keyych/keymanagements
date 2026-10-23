@@ -15,11 +15,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 <link rel="preload" href="img/hero-original.webp" as="image" fetchpriority="high">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="atmosphere.css">
-<script src="main.js" defer>
+<link rel="stylesheet" href="styles.css?v=547eb3faf870">
+<link rel="stylesheet" href="atmosphere.css?v=68209c9ed7d1">
+<script src="main.js?v=9575d14c02a5" defer>
 </script>
-<script src="atmosphere.js" defer></script>
+<script src="atmosphere.js?v=65a40f53e9b4" defer></script>
 <title>Miki — King of Beans</title>
 </head>
 <body>
@@ -180,15 +180,10 @@
 <path fill="url(#grid)" d="M0 0h420v240H0z"/>
 <path d="M70 173h154v-60h92" stroke="#a8c987" stroke-width="37" fill="none" stroke-linejoin="round"/>
 <path d="M70 174h151v-58h94" stroke="#d4e6aa" stroke-width="3" fill="none" stroke-dasharray="3 22"/>
-<g transform="translate(292 86)">
-<path d="M8 0h35v7h8v39h-8v7H8v-7H0V7h8Z" fill="#d8e8b9"/>
-<path d="M29 13h6v7h-6zm12 0h6v7h-6z" fill="#193126"/>
-<path d="M34 30h9" stroke="#193126" stroke-width="4"/>
-</g>
-<g transform="translate(357 98)">
-<path d="M0 9h7V2h18v7h7v18h-7v7H7v-7H0Z" fill="#dc916d"/>
-<path d="M14 0v-7h9" stroke="#c4d590" stroke-width="4"/>
-</g>
+<image class="bean-sprite bean-motion bean-mint" href="img/bean-original.gif" x="282" y="78" width="72" height="72"/>
+<image class="bean-sprite bean-still bean-mint" href="img/bean-still.png" x="282" y="78" width="72" height="72"/>
+<image class="bean-sprite bean-motion bean-gold" href="img/bean-original.gif" x="359" y="93" width="44" height="44"/>
+<image class="bean-sprite bean-still bean-gold" href="img/bean-still.png" x="359" y="93" width="44" height="44"/>
 <path d="m72 53 4 11 11 4-11 4-4 11-4-11-11-4 11-4Z" fill="#c9dba5"/>
 </svg>
 <span class="poster-caption mono">ONE MORE BEAN. ONE MORE ROUND.</span>
@@ -218,24 +213,42 @@
 <span>CRUSH</span>
 </span>
 <div class="crush-board" aria-hidden="true">
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
+<picture class="game-bean bean-mint">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-coral">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-lilac">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-lilac">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-gold">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-mint">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-coral">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-mint">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
+<picture class="game-bean bean-lilac">
+<source srcset="img/bean-still.png" media="(prefers-reduced-motion: reduce)">
+<img src="img/bean-original.gif" width="640" height="640" alt="" loading="lazy">
+</picture>
 </div>
 <span class="poster-caption mono">A PERFECT MATCH. A LITTLE CHAOS.</span>
 <span class="game-open">

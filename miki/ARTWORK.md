@@ -20,3 +20,7 @@ File: `img/court-original.webp`
 
 Use case: stylized-concept. Create an original dark fantasy heraldic still life for the royal court of Key and Miki. Wide landscape 3:2. At the center an antique brass crown rests above two crossed beautiful old skeleton keys, arranged as one carefully composed emblem, set against a matte charcoal stone wall. Two deep oxblood roses and sparse thorn vines at the base, restrained trailing fine metal chain. The keys have distinct believable shafts and decorative round bows. Regal, refined, elegant, symmetrical balanced composition with broad dark negative space around the emblem. Painterly realism with museum still-life lighting, smoky pine green shadows and gold edge highlights. No people, no faces, no skulls. No writing, no lettering, no words, no watermark, no borders. Designed to look like a high-end fantasy art print, not a logo mockup.
 
+
+## Supplied game bean
+
+`img/bean-original.gif` is an unchanged copy of the user-supplied `ezgif-5f479acbc8954a1c.gif` (640 × 640, 8 frames). `img/bean-still.png` is its first frame converted with `sips` for reduced motion. Color variants are applied at display time with CSS filters; the source artwork and animation are preserved.
