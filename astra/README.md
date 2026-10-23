@@ -16,7 +16,7 @@ Two new character portraits were generated from the supplied references with the
 
 Typography: locally hosted UnifrakturMaguntia, Cormorant Garamond, and Manrope. Licenses are in `assets/fonts/`.
 
-The frame-star glow and short entrance transitions respect system reduced motion. The footer motion control pauses effects and stores the preference when local storage is available. Content stays readable without JavaScript, and direct email navigation remains available.
+Two celestial rings rotate independently around the main portrait while it gently sways from side to side. A horizontally reflected version of the same cached image sits behind it in a silver oval mirror. The rings, sway, and short entrance transitions respect system reduced motion. The footer motion control pauses effects and stores the preference when local storage is available. Content stays readable without JavaScript, and direct email navigation remains available.
 
 ## Validation
 

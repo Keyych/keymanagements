@@ -45,3 +45,25 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 @media(max-width:1100px){.hero{gap:8%;padding-inline:6%}.hero-art img{height:520px}.hero h1{font-size:clamp(94px,11.6vw,130px)}.hero-lead{font-size:38px}.hero-actions{gap:18px}.work{gap:8%}.boundaries-inner{gap:8%}}
 @media(max-width:900px){.hero{gap:7%;padding-block:50px 85px}.hero-art img{height:465px}.hero h1{font-size:clamp(84px,11.3vw,106px)}.hero .eyebrow{font-size:9px}.hero-lead{font-size:33px}.hero-ornament{width:195px;margin-bottom:22px}.hero-caption{bottom:22px}.interlude{padding-inline:7%;font-size:18px}.interlude svg{width:165px}.work{padding-top:65px}.portrait img{border-top-left-radius:95px}.boundary-list span{font-size:22px}.contact h2{font-size:49px}}
 @media(max-width:650px){.hero{padding:35px 7% 26px;gap:33px}.hero-art{order:0;width:81%;max-width:330px;margin-bottom:0}.hero-art::before{inset:-9px -12px}.hero-art img{height:auto;aspect-ratio:4/4.7;object-position:50% 25%}.frame-star{left:-16px;width:17px}.frame-star:last-child{right:-16px}.hero-content{padding:0}.hero h1{font-size:clamp(87px,24vw,140px);margin:20px 0 14px;letter-spacing:.06em}.hero-ornament{width:215px;margin:10px auto 20px}.hero-lead{font-size:36px}.hero-description{margin:20px auto 0}.hero-actions{gap:14px;margin-top:25px}.hero-caption{position:static;padding-top:0}.interlude{margin-inline:7%;padding:26px 0;justify-content:center;flex-direction:column;gap:15px;font-size:18px}.interlude svg{width:180px}.work{padding-top:50px;gap:42px}.work-copy{order:0}.portrait{order:1;width:88%;max-width:350px}.portrait img{aspect-ratio:4/4.8;border-top-left-radius:110px}.portrait::before{inset:10px -10px 44px 10px}.boundaries-inner{gap:40px}.boundary-copy{order:0}.boundary-art{order:1;width:77%;max-width:320px}.boundary-list span{font-size:24px}.contact h2{font-size:clamp(47px,13vw,64px)}}
+
+/* Independent orbiting rings, a swaying portrait, and its silver mirror backing. */
+.hero-art{border:0;padding:9px;background:none;overflow:visible;isolation:isolate}
+.hero-art::before{display:none}
+.hero-portrait{position:relative;z-index:3;aspect-ratio:4/5;border-radius:48%;overflow:hidden;border:1px solid #d0c3e9a8;box-shadow:0 7px 24px #05081a70;transform-origin:50% 52%;animation:portrait-sway 9s ease-in-out infinite}
+.hero-art .hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;border-radius:0}
+.hero-mirror{position:absolute;z-index:1;inset:5px -15px -8px 15px;overflow:hidden;border-radius:48%;padding:5px;background:linear-gradient(135deg,#f0e7ff 0%,#817ca1 15%,#282e4d 35%,#d5cce7 60%,#5a5d83 82%,#dad2ef);box-shadow:inset 0 0 0 1px #e9dfff66,4px 8px 22px #03061970}
+.hero-art .hero-mirror img{height:100%;width:100%;border-radius:48%;object-fit:cover;object-position:50% 25%;transform:scaleX(-1);filter:saturate(.4) brightness(.63);opacity:.8}
+.hero-mirror::after{content:'';position:absolute;inset:5px;border-radius:48%;background:linear-gradient(118deg,transparent 15%,#e4d8ff38 29%,transparent 43%,#c2c8ff17 60%,transparent 75%);box-shadow:inset 0 0 24px #c4c5ed2b;pointer-events:none}
+.portrait-orbit{position:absolute;z-index:2;top:50%;left:-16%;width:132%;aspect-ratio:1;pointer-events:none;transform:translateY(-50%);overflow:hidden;border-radius:50%;color:#bcb0df}
+.portrait-orbit svg{display:block;width:100%;height:100%;overflow:visible;animation:ring-orbit 38s linear infinite}
+.portrait-orbit circle{stroke-width:.18;stroke-dasharray:69 3 1 3;opacity:.72}
+.portrait-orbit use{stroke-width:.9;filter:drop-shadow(0 0 1px #cbb2ff88)}
+.portrait-orbit .orbit-dot{fill:currentColor;stroke:none;opacity:1}
+.orbit-inner{width:122%;left:-11%;color:#999fcf}
+.orbit-inner circle{stroke-dasharray:40 5 1 5;opacity:.6}
+.orbit-inner svg{animation-duration:51s;animation-direction:reverse;animation-delay:-13s}
+@keyframes portrait-sway{0%,100%{transform:translateX(-3px) rotate(-2.5deg)}50%{transform:translateX(3px) rotate(2.5deg)}}
+@keyframes ring-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@media(max-width:900px){.portrait-orbit{width:128%;left:-14%}.orbit-inner{width:119%;left:-9.5%}.hero-mirror{inset:5px -11px -6px 11px}}
+@media(max-width:650px){.hero-art{padding:6px}.hero-portrait{aspect-ratio:4/4.8}.portrait-orbit{width:132%;left:-16%}.orbit-inner{width:122%;left:-11%}.hero-mirror{inset:3px -10px -6px 10px}}
+@media(prefers-reduced-motion:reduce){.hero-portrait{animation:none;transform:none}.portrait-orbit svg{animation:none;transform:rotate(-12deg)}.orbit-inner svg{transform:rotate(31deg)}}
