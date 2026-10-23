@@ -14,7 +14,7 @@
   function resize() {
     width = window.innerWidth;
     height = window.innerHeight;
-    length = Math.min(560, height * .7);
+    length = Math.min(896, height * 1.12);
     const ratio = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
@@ -56,7 +56,7 @@
     const mobile = width < 700;
     const scale = length / rig.rings[rig.rings.length - 1][6];
     const amplitude = mobile ? 24 : 42;
-    const edge = mobile ? 47 : Math.max(72, width * .055);
+    const edge = mobile ? 80 : Math.max(108, width * .07);
     const rail = edge;
     const frequency = .014;
     const slope = t => amplitude * frequency * Math.cos(t * frequency);
