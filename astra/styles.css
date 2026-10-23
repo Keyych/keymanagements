@@ -58,16 +58,27 @@ a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}b
 .hero-mirror{transform:rotateY(180deg) translateZ(4px);background:linear-gradient(135deg,#fff 0%,#9da2ad 15%,#eff0f3 28%,#737b89 46%,#fdfefe 64%,#b6bac4 83%,#fff 100%)}
 .hero-mirror::before{content:'';position:absolute;inset:6px;border-radius:inherit;background:linear-gradient(122deg,#e8eaef 0%,#fff 18%,#f7f8fa 27%,#c7cbd3 38%,#eceef2 44%,#fff 48%,#d6d9e0 59%,#a5aab5 65%,#e5e7ed 76%,#fff 91%);box-shadow:inset 0 0 0 1px #ffffffb3,inset 0 0 25px #7f87945c}
 .hero-mirror::after{content:'';position:absolute;inset:7px;border-radius:inherit;background:linear-gradient(122deg,transparent 26%,#ffffffb3 31%,#fff 33%,transparent 39%,transparent 68%,#ffffffa6 74%,transparent 81%);pointer-events:none}
-.portrait-orbit{position:absolute;z-index:2;top:50%;left:-16%;width:132%;aspect-ratio:1;pointer-events:none;transform:translateY(-50%);overflow:hidden;border-radius:50%;color:#bcb0df}
-.portrait-orbit svg{display:block;width:100%;height:100%;overflow:visible;animation:ring-orbit 38s linear infinite}
+.portrait-orbit{position:absolute;z-index:2;top:50%;left:-9%;width:118%;height:118%;pointer-events:none;transform:translateY(-50%);overflow:hidden;border-radius:50%;color:#bcb0df}
+.portrait-orbit svg{display:block;width:100%;height:100%;overflow:visible}
+/* The oval path and the star's three-dimensional turn are separate motions. */
+.orbit-track{transform-box:view-box;transform-origin:50% 50%;animation:ring-orbit 24s linear infinite}
 .portrait-orbit circle{stroke-width:.18;stroke-dasharray:69 3 1 3;opacity:.72}
-.portrait-orbit use{stroke-width:.9;filter:drop-shadow(0 0 1px #cbb2ff88)}
+.orbit-star{position:absolute;top:0;left:0;width:7%;aspect-ratio:4/5;offset-path:ellipse(46% 46% at 50% 50%);offset-distance:75%;offset-anchor:center;offset-rotate:0deg;perspective:160px;animation:star-travel 24s linear infinite}
+.star-coin{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;animation:portrait-roll 16s linear infinite}
+.star-coin svg{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;stroke-width:1;fill:#c8c4e121}
+.star-coin .star-front{transform:translateZ(1px)}
+.star-coin .star-back{transform:rotateY(180deg) translateZ(1px);color:#eff0f6;fill:#dce1ed3d}
+.star-coin::after{content:'';position:absolute;top:0;left:calc(50% - 1px);width:2px;height:100%;background:linear-gradient(#b0b6c6,#f7f8ff,#999fb3);transform:rotateY(90deg)}
+.star-companion{width:5%;animation-delay:-12s}
+.star-companion .star-coin{animation-delay:-4s}
 .portrait-orbit .orbit-dot{fill:currentColor;stroke:none;opacity:1}
-.orbit-inner{width:122%;left:-11%;color:#999fcf}
+.orbit-inner{width:110%;height:110%;left:-5%;color:#999fcf}
 .orbit-inner circle{stroke-dasharray:40 5 1 5;opacity:.6}
-.orbit-inner svg{animation-duration:51s;animation-direction:reverse;animation-delay:-13s}
+.orbit-inner .orbit-track{animation-duration:32s;animation-direction:reverse;animation-delay:-11s}
+.orbit-inner .orbit-star{width:6%;animation-duration:32s;animation-direction:reverse;animation-delay:-11s}
+.orbit-inner .star-coin{animation-delay:-2s}
 @keyframes portrait-roll{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
 @keyframes ring-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@media(max-width:900px){.portrait-orbit{width:128%;left:-14%}.orbit-inner{width:119%;left:-9.5%}}
-@media(max-width:650px){.hero-art{padding:6px}.hero-coin{aspect-ratio:4/4.8}.portrait-orbit{width:132%;left:-16%}.orbit-inner{width:122%;left:-11%}}
-@media(prefers-reduced-motion:reduce){.hero-coin{animation:none;transform:none}.portrait-orbit svg{animation:none;transform:rotate(-12deg)}.orbit-inner svg{transform:rotate(31deg)}}
+@keyframes star-travel{from{offset-distance:75%}to{offset-distance:175%}}
+@media(max-width:650px){.hero-art{padding:6px}.hero-coin{aspect-ratio:4/4.8}}
+@media(prefers-reduced-motion:reduce){.hero-coin,.star-coin{animation:none;transform:none}.orbit-track{animation:none;transform:rotate(-12deg)}.orbit-inner .orbit-track{transform:rotate(31deg)}.orbit-star{animation:none;offset-distance:75%}.star-companion{offset-distance:25%}.orbit-inner .orbit-star{offset-distance:10%}}
