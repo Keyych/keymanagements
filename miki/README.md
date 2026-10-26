@@ -31,6 +31,10 @@ An emerald, muted forest, olive, and antique-gold editorial layout. Text remains
 
 See [ARTWORK.md](ARTWORK.md) and [CHAPTER-ARTWORK.md](CHAPTER-ARTWORK.md) for generated image filenames, methods, and complete prompts.
 
+## Depth interaction
+
+`scene-depth.js` controls the existing home, voice, studio, games and court layers. On phones, touch devices and layouts up to 800px wide, ordinary page scrolling gently shifts the foreground and background at different rates. Wider mouse layouts keep pointer-follow depth. Scroll listeners are passive, updates run only on demand while the scene is visible, and the pause control, reduced-motion preference and hidden tabs stop the movement. No device-motion permission is needed.
+
 ## Publishing updates
 
 Local CSS and JavaScript URLs in **all six HTML files** include the first 12 characters of each file’s SHA-256 hash as a `v` query parameter. Refresh the corresponding hash everywhere whenever a shared asset changes, before pushing, so the custom domain’s browser cache cannot retain an older design.
