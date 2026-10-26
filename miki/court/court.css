@@ -1,0 +1,91 @@
+/* Miki and the ivy-covered terrace share one foreground plane. */
+.page-court { position: relative; }
+.page-court em { font-style: normal; }
+.page-court .atmosphere-toggle { position: absolute; }
+.page-court .court-stage {
+  --court-art-height: max(760px, 66.667vw);
+  min-height: var(--court-art-height);
+  overflow: clip;
+}
+.court-stage .hero-image {
+  inset: 0 auto auto calc(54% - var(--court-art-height) * .81);
+  width: calc(var(--court-art-height) * 1.5); max-width: none;
+  height: var(--court-art-height); object-fit: contain;
+}
+.court-balcony {
+  position: absolute; inset: 0 0 auto; height: var(--court-art-height); z-index: -3;
+  transform: translate3d(var(--room-x, 0px), var(--room-y, 0px), 0);
+  transition: transform .8s ease-out;
+}
+.court-balcony .hero-image {
+  z-index: auto;
+  mask-image: linear-gradient(#000, #000 76%, transparent 100%);
+}
+.court-lettering {
+  position: absolute;
+  top: calc(var(--court-art-height) * .18);
+  left: max(56px, calc((100% - 1420px) / 2));
+}
+.court-stage .court-lettering h1 {
+  max-width: none; font-size: 26.667vw;
+  line-height: .8; letter-spacing: -.055em; white-space: nowrap;
+  color: #e2cca4; font-weight: 500;
+  text-shadow: 0 3px 22px #07100de6, 0 1px 3px #07100d99;
+}
+.court-stage h1 .court-title-prefix {
+  display: block; margin: 0 0 -.45em 4px;
+  font-size: .48em; line-height: .8; letter-spacing: -.025em;
+}
+.court-stage .court-lettering h1 em { display: block; color: inherit; font-weight: 500; }
+.court-foreground {
+  position: absolute; inset: 0 0 auto; height: var(--court-art-height); z-index: 0;
+  perspective: 1400px; pointer-events: none;
+  mask-image: linear-gradient(#000, #000 78%, transparent 100%);
+}
+.court-stage .court-cutout {
+  z-index: auto;
+  transform: translate3d(var(--court-x, 0px), var(--court-y, 0px), 0) rotateY(var(--court-turn, 0deg));
+  transform-origin: 62% 85%;
+  transition: transform .5s ease-out;
+  filter: drop-shadow(-10px 12px 10px #0009) drop-shadow(1px -1px 1px #dbc39520);
+}
+.court-stage .hero-shade {
+  inset: 0; height: auto; z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, #0c1412 0%, #0c1412b3 12%, transparent 38%), linear-gradient(180deg, #09120d60, transparent 16%);
+}
+.court-stage .court-composition {
+  min-height: inherit; width: min(1420px, calc(100% - 112px));
+  padding-block: calc(var(--court-art-height) * .6) 68px;
+}
+.court-composition .chapter-back { position: absolute; top: 30px; left: 0; margin: 0; text-shadow: 0 2px 12px #000; }
+.court-credit { position: absolute; top: 43px; right: 0; color: #d5c6a5; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
+.court-intro { max-width: 420px; text-shadow: 0 2px 18px #0008; }
+.court-statement { font: 400 30px/1.2 var(--serif); color: #e2d2b1; }
+.court-description { margin-top: 14px; max-width: 320px; font-size: 12px; line-height: 1.8; color: #c5bdab; }
+.court-explore { margin-top: 17px; font-size: 11px; color: #dfcba3; }
+.court-stage .hero-mist { top: 58%; bottom: -160px; z-index: 2; opacity: .65; }
+.page-court .ambient-mist { opacity: .24; }
+.page-court .court-section { padding-top: 48px; }
+@media (max-width: 1100px) and (min-width: 721px) {
+  .court-lettering { left: 36px; }
+  .court-stage .court-composition { width: calc(100% - 72px); }
+}
+@media (max-width: 720px) {
+  .page-court .court-stage {
+    --court-art-height: min(154vw, 800px);
+  }
+  .court-lettering { left: 22px; top: calc(var(--court-art-height) * .2); }
+  .court-stage .court-lettering h1 { font-size: min(32vw, calc(var(--court-art-height) * .28)); }
+  .court-stage .court-composition { width: calc(100% - 44px); padding-block: calc(var(--court-art-height) * .58) 52px; }
+  .court-composition .chapter-back { top: 16px; font-size: 11px; }
+  .court-credit { top: 18px; font-size: 7px; letter-spacing: .1em; }
+  .court-statement { font-size: clamp(25px, 7.4vw, 31px); }
+  .court-description { margin-top: 12px; max-width: 290px; }
+  .court-explore { margin-top: 13px; }
+  .court-stage .hero-mist { top: 51%; bottom: -110px; opacity: .55; }
+  .page-court .court-section { padding-top: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .court-balcony { transform: none; }
+  .court-stage .court-cutout { transform: none; }
+}

@@ -14,13 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-<link rel="preload" href="/img/miki-games.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/miki-games-cutout.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/games-room.webp" as="image">
 <link rel="stylesheet" href="/styles.css?v=547eb3faf870">
 <link rel="stylesheet" href="/atmosphere.css?v=68209c9ed7d1">
-<link rel="stylesheet" href="/chapters.css?v=3daf5b56336b">
+<link rel="stylesheet" href="/chapters.css?v=ca0d8881b631">
+<link rel="stylesheet" href="/games/games.css?v=d0759a28b333">
 <script src="/main.js?v=83d4034466a9" defer>
 </script>
 <script src="/atmosphere.js?v=5106da3b4f30" defer></script>
+<script src="/games/depth.js?v=24789e70fa36" defer></script>
 <title>The games — Miki, King of Beans</title>
 <link rel="canonical" href="https://miki.keymanagements.org/games/">
 </head>
@@ -68,17 +71,23 @@
 </div>
 </header>
 <main id="main">
-<section class="hero chapter-hero" id="top" aria-labelledby="chapter-title">
-<div class="hero-scene"><img class="hero-image" src="/img/miki-games.webp" width="1536" height="1024" alt="Miki sitting cross-legged on a castle floor, leaning forward to place a colorful bean token on a game board" fetchpriority="high"></div>
-<div class="hero-shade" aria-hidden="true"></div>
-<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
-<div class="hero-content container">
-<a class="chapter-back" href="/">← Back to the kingdom</a>
-<p class="eyebrow"><span></span> 02 / A kingdom at play</p>
-<h1 id="chapter-title">The <em>games.</em></h1>
-<p class="chapter-lead">Small beans. Big distractions. Welcome to Miki’s games room.</p>
-<a class="button button-gold chapter-action" href="#games">Choose a game <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-</div><div class="hero-footer container"><span class="mono">MIKI / KING OF BEANS</span><a class="scroll-cue" href="#games">Discover this chapter <span aria-hidden="true">↓</span></a></div>
+<section class="hero chapter-hero games-stage" id="top" aria-labelledby="games-scene-title">
+  <div class="games-room">
+    <img class="hero-image" src="/img/games-room.webp" width="1536" height="1024" alt="">
+    <div class="games-lettering"><h1 id="games-scene-title"><span class="games-title-prefix">The</span><em>games.</em></h1></div>
+  </div>
+  <div class="games-foreground"><img class="hero-image games-cutout" src="/img/miki-games-cutout.webp" width="1536" height="1024" alt="Miki sitting cross-legged and reaching forward to place a golden bean on the game board" fetchpriority="high"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
+  <div class="hero-content container games-composition">
+    <a class="chapter-back" href="/">← Back to the kingdom</a>
+    <span class="games-credit">Miki · A kingdom at play</span>
+    <div class="games-intro">
+      <p class="games-statement">Small beans.<br><em>Big distractions.</em></p>
+      <p class="games-description">Made by Miki. Played by the kingdom.</p>
+      <a class="text-link games-explore" href="#games">Choose a game <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
 </section>
 <section id="games" class="games-section section" aria-labelledby="games-title">
 <div class="container">
@@ -204,7 +213,6 @@
 </a>
 </div>
 </section>
-<nav class="chapter-next" aria-label="Continue exploring"><div class="container chapter-next-inner"><a class="chapter-home" href="/">← Back to the kingdom</a><a class="next-link" href="/studio/"><span class="mono">NEXT CHAPTER / 03</span><span>The studio <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a></div></nav>
 </main>
 <div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="wind-leaves" aria-hidden="true"></div>

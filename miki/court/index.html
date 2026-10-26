@@ -14,13 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-<link rel="preload" href="/img/miki-court.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/court-foreground.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/court-distance.webp" as="image">
 <link rel="stylesheet" href="/styles.css?v=547eb3faf870">
 <link rel="stylesheet" href="/atmosphere.css?v=68209c9ed7d1">
-<link rel="stylesheet" href="/chapters.css?v=3daf5b56336b">
+<link rel="stylesheet" href="/chapters.css?v=ca0d8881b631">
+<link rel="stylesheet" href="/court/court.css?v=c24d1e1de698">
 <script src="/main.js?v=83d4034466a9" defer>
 </script>
 <script src="/atmosphere.js?v=5106da3b4f30" defer></script>
+<script src="/court/depth.js?v=c00cf53d0288" defer></script>
 <title>The court — Miki, King of Beans</title>
 <link rel="canonical" href="https://miki.keymanagements.org/court/">
 </head>
@@ -68,17 +71,23 @@
 </div>
 </header>
 <main id="main">
-<section class="hero chapter-hero" id="top" aria-labelledby="chapter-title">
-<div class="hero-scene"><img class="hero-image" src="/img/miki-court.webp" width="1536" height="1024" alt="Miki standing in profile on a castle balcony, holding a crown as his long black cloak blows in the wind" fetchpriority="high"></div>
-<div class="hero-shade" aria-hidden="true"></div>
-<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
-<div class="hero-content container">
-<a class="chapter-back" href="/">← Back to the kingdom</a>
-<p class="eyebrow"><span></span> 04 / Key & Miki</p>
-<h1 id="chapter-title">The <em>court.</em></h1>
-<p class="chapter-lead">One kingdom. Two crowns. Step inside the royal court.</p>
-<a class="button button-gold chapter-action" href="#court">Enter the court <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-</div><div class="hero-footer container"><span class="mono">MIKI / KING OF BEANS</span><a class="scroll-cue" href="#court">Discover this chapter <span aria-hidden="true">↓</span></a></div>
+<section class="hero chapter-hero court-stage" id="top" aria-labelledby="court-scene-title">
+  <div class="court-balcony">
+    <img class="hero-image" src="/img/court-distance.webp" width="1536" height="1024" alt="">
+    <div class="court-lettering"><h1 id="court-scene-title"><span class="court-title-prefix">The</span><em>court.</em></h1></div>
+  </div>
+  <div class="court-foreground"><img class="hero-image court-cutout" src="/img/court-foreground.webp" width="1536" height="1024" alt="Miki holding a brass crown, resting his hand on an ivy-covered stone railing as his feathered cloak trails across the terrace" fetchpriority="high"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
+  <div class="hero-content container court-composition">
+    <a class="chapter-back" href="/">← Back to the kingdom</a>
+    <span class="court-credit">Key &amp; Miki · The royal court</span>
+    <div class="court-intro">
+      <p class="court-statement">One kingdom.<br>Two crowns.</p>
+      <p class="court-description">Key &amp; Miki. A queen and a king.</p>
+      <a class="text-link court-explore" href="#court">Enter the court <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
 </section>
 <section id="court" class="court-section section" aria-labelledby="court-title">
 <div class="container court-layout">
@@ -100,7 +109,6 @@
 </figure>
 </div>
 </section>
-<nav class="chapter-next" aria-label="Continue exploring"><div class="container chapter-next-inner"><a class="chapter-home" href="/">← Back to the kingdom</a><a class="next-link" href="/support/"><span class="mono">NEXT CHAPTER / 05</span><span>The kingdom <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a></div></nav>
 </main>
 <div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="wind-leaves" aria-hidden="true"></div>

@@ -14,13 +14,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-<link rel="preload" href="/img/hero-original.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/miki-cutout.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/castle-background.webp" as="image">
 <link rel="stylesheet" href="/styles.css?v=547eb3faf870">
 <link rel="stylesheet" href="/atmosphere.css?v=68209c9ed7d1">
-<link rel="stylesheet" href="/chapters.css?v=3daf5b56336b">
+<link rel="stylesheet" href="/home.css?v=5eec49f4627e">
 <script src="/main.js?v=83d4034466a9" defer>
 </script>
 <script src="/atmosphere.js?v=5106da3b4f30" defer></script>
+<script src="/home.js?v=d4e9b0e0131c" defer></script>
 <title>Miki — King of Beans</title>
 <link rel="canonical" href="https://miki.keymanagements.org/">
 </head>
@@ -68,59 +70,44 @@
 </div>
 </header>
 <main id="main">
-<section class="hero" id="top" aria-labelledby="hero-title">
-<div class="hero-scene">
-<img class="hero-image" src="/img/hero-original.webp" width="1536" height="1024" alt="Original artwork of Miki in a black cloak and gold-edged mask, overlooking a misty gothic kingdom" fetchpriority="high">
-<img class="hero-image forest-breath" src="/img/hero-original.webp" width="1536" height="1024" alt="" aria-hidden="true">
+<section class="hero home-hero" id="top" aria-labelledby="hero-title">
+<div class="hero-scene home-castle" aria-hidden="true">
+  <img class="home-castle-image" src="/img/castle-background.webp" width="1536" height="1024" alt="">
+  <img class="home-castle-image forest-breath" src="/img/castle-background.webp" width="1536" height="1024" alt="">
 </div>
-<div class="hero-shade" aria-hidden="true">
+<div class="home-castle-shade" aria-hidden="true"></div>
+<div class="home-depth-window">
+<div class="home-stage container">
+  <div class="home-copy">
+    <p class="eyebrow"><span aria-hidden="true"></span> Welcome to the kingdom</p>
+    <h1 id="hero-title">MIKI<span>King of <em>Beans.</em></span></h1>
+    <p class="home-intro">A voice. A world. A little chaos.</p>
+    <nav class="home-chapters" id="chapters" aria-label="Explore the kingdom">
+      <a href="/voice/"><span><span class="home-link-title">The voice</span><span class="home-link-note">Stories brought to life</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
+      <a href="/games/"><span><span class="home-link-title">The games</span><span class="home-link-note">Just one more round</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
+      <a href="/studio/"><span><span class="home-link-title">The studio</span><span class="home-link-note">Ideas made real</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
+      <a href="/court/"><span><span class="home-link-title">The court</span><span class="home-link-note">Meet the two crowns</span></span><svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
+    </nav>
+  </div>
+  <div class="home-portrait">
+    <div class="portrait-aura" aria-hidden="true"></div>
+    <div class="portrait-depth">
+      <img class="miki-cutout" src="/img/miki-cutout.webp" width="1536" height="1024" alt="Miki in a feathered black cloak and gold-edged mask, with an antique key at his chest" fetchpriority="high">
+    </div>
+    <div class="portrait-shadow" aria-hidden="true"></div>
+  </div>
 </div>
-<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
-<div class="hero-content container">
-<p class="eyebrow light">
-<span>
-</span> Welcome to the Bean Kingdom</p>
-<h1 id="hero-title">MIKI<span>King of <em>Beans.</em>
-</span>
-</h1>
-<p class="hero-intro">A voice behind the mask.<br>A world beyond the ordinary.</p>
-<p class="hero-detail">Voice actor. Game maker. Creative mind.<br>One kingdom. A little bit of chaos.</p>
-<div class="hero-actions">
-<a class="button button-gold" href="#chapters">Explore the kingdom <svg class="icon">
-<use href="#arrow"/>
-</svg>
-</a>
-<a class="text-link" href="/games/">Play the games <svg class="icon">
-<use href="#arrow-up"/>
-</svg>
-</a>
 </div>
-</div>
-<div class="hero-footer container">
-<span class="mono">ONE KEY. ONE ANCHOR. ONE CHAOS.</span>
-<a href="#chapters" class="scroll-cue">Scroll to discover <span aria-hidden="true">↓</span>
-</a>
-</div>
+<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 </section>
-<section class="chapter-directory section" id="chapters" aria-labelledby="chapters-title"><div class="container"><div class="section-heading"><div><p class="eyebrow">A world beyond the ordinary</p><h2 id="chapters-title">Choose your<br><em>chapter.</em></h2></div><p>A voice. A game. An idea.<br>There’s more than one way into the kingdom.</p></div><div class="chapter-list"><a class="chapter-entry reveal" href="/voice/"><span class="chapter-number mono">01</span><img src="/img/miki-voice.webp" width="1536" height="1024" alt="" loading="lazy"><div class="chapter-entry-copy"><p class="eyebrow">Voice acting</p><h3>The voice</h3><p>Characters, scripts, and stories brought to life.</p></div><span class="chapter-open">Enter <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a><a class="chapter-entry reveal" href="/games/"><span class="chapter-number mono">02</span><img src="/img/miki-games.webp" width="1536" height="1024" alt="" loading="lazy"><div class="chapter-entry-copy"><p class="eyebrow">A kingdom at play</p><h3>The games</h3><p>Bean Snake, Bean Crush, and one more round.</p></div><span class="chapter-open">Enter <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a><a class="chapter-entry reveal" href="/studio/"><span class="chapter-number mono">03</span><img src="/img/miki-studio.webp" width="1536" height="1024" alt="" loading="lazy"><div class="chapter-entry-copy"><p class="eyebrow">Beans Digital</p><h3>The studio</h3><p>Websites and applications, built with intention.</p></div><span class="chapter-open">Enter <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a><a class="chapter-entry reveal" href="/court/"><span class="chapter-number mono">04</span><img src="/img/miki-court.webp" width="1536" height="1024" alt="" loading="lazy"><div class="chapter-entry-copy"><p class="eyebrow">Key & Miki</p><h3>The court</h3><p>Meet the two crowns at the heart of the kingdom.</p></div><span class="chapter-open">Enter <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a></div></div></section>
-<section class="home-support"><div class="container"><div><p class="eyebrow">Made with a little chaos</p><h2>Keep the kingdom <em>creating.</em></h2></div><a class="button button-gold" href="/support/">Support Miki <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a></div></section>
 </main>
 <div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="wind-leaves" aria-hidden="true"></div>
 <button class="atmosphere-toggle" type="button" aria-pressed="false" aria-label="Pause atmospheric animation" hidden><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h12c4 0 4-5 1-5-2 0-2 1-2 2M3 12h16M3 16h10c4 0 4 5 1 5-2 0-2-1-2-2"/></svg><span>Pause mist</span></button>
-<footer class="site-footer">
-<div class="container">
-<div class="footer-top">
-<a class="footer-brand" href="/">MIKI<span>King of Beans</span>
-</a>
-<p>A voice. A world.<br>A little chaos.</p>
-<a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span>
-</a>
-</div>
-<div class="footer-bottom">
-<span>© <span id="year">2026</span> Miki · The Bean Kingdom</span>
-<span class="mono">BUILT WITH BEANS & A LITTLE CHAOS</span>
-</div>
+<footer class="home-footer">
+<div class="container home-footer-inner">
+  <span>© <span id="year">2026</span> Miki · The Bean Kingdom</span>
+  <a href="https://cash.app/$blackhound55" target="_blank" rel="noopener noreferrer">Support Miki <svg class="icon" aria-hidden="true"><use href="#arrow-up"/></svg></a>
 </div>
 </footer>
 </body>

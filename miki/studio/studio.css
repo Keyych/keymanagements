@@ -1,0 +1,88 @@
+/* The lettering belongs to the drafting paper; Miki sits in front of it. */
+.page-studio { position: relative; }
+.page-studio .atmosphere-toggle { position: absolute; }
+.page-studio .studio-stage {
+  --studio-art-height: max(760px, 66.667vw);
+  min-height: max(var(--studio-art-height), calc(100svh - 88px));
+  overflow: clip;
+}
+.studio-stage .hero-image {
+  width: 100%; height: var(--studio-art-height);
+  object-fit: cover; object-position: 25% top;
+}
+.studio-room {
+  position: absolute; inset: 0; z-index: -3;
+  transform: translate3d(var(--room-x, 0px), var(--room-y, 0px), 0);
+  transition: transform .8s ease-out;
+}
+.studio-room .hero-image { z-index: auto; }
+.studio-lettering {
+  position: absolute;
+  top: calc(var(--studio-art-height) * .46);
+  left: calc(25% - var(--studio-art-height) * .12);
+  transform: rotate(-13deg) skewX(22deg);
+  transform-origin: left center;
+  mix-blend-mode: multiply;
+}
+.studio-stage .studio-lettering h1 {
+  font-size: calc(var(--studio-art-height) * .12); line-height: .8;
+  max-width: none; letter-spacing: -.055em; white-space: nowrap;
+  color: #293224; font-weight: 500;
+}
+.studio-stage h1 .studio-title-prefix {
+  display: block; margin: 0 0 8px 7px;
+  font-size: .28em; line-height: 1; letter-spacing: -.025em;
+}
+.studio-stage .studio-lettering h1 em { display: block; color: inherit; font-weight: 500; }
+.studio-foreground {
+  position: absolute; inset: 0; z-index: 0;
+  perspective: 1400px; pointer-events: none;
+  mask-image: linear-gradient(#000, #000 68%, transparent 100%);
+}
+.studio-stage .studio-cutout {
+  z-index: auto;
+  transform: translate3d(var(--studio-x, 0px), var(--studio-y, 0px), 0) rotateY(var(--studio-turn, 0deg));
+  transform-origin: 55% 75%;
+  transition: transform .5s ease-out;
+  filter: drop-shadow(-8px 10px 9px #0009) drop-shadow(1px -1px 1px #dbc39520);
+}
+.studio-stage .hero-shade {
+  inset: 0; height: auto; z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, #0c1412 0%, #0c1412d9 12%, #0c141200 38%), linear-gradient(180deg, #09120d55, transparent 15%);
+}
+.studio-stage .studio-composition {
+  min-height: inherit;
+  width: min(1420px, calc(100% - 112px));
+  padding-block: calc(var(--studio-art-height) * .77) 68px;
+}
+.studio-composition .chapter-back { position: absolute; top: 30px; left: 0; margin: 0; text-shadow: 0 2px 12px #000; }
+.studio-credit { position: absolute; top: 43px; right: 0; color: #d5c6a5; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
+.studio-intro { max-width: 420px; text-shadow: 0 2px 18px #0008; }
+.studio-statement { font: 400 30px/1.2 var(--serif); color: #e2d2b1; }
+.studio-description { margin-top: 14px; max-width: 320px; font-size: 12px; line-height: 1.8; color: #c5bdab; }
+.studio-explore { margin-top: 17px; font-size: 11px; color: #dfcba3; }
+.studio-stage .hero-mist { top: 57%; bottom: -160px; z-index: 2; opacity: .65; }
+.page-studio .ambient-mist { opacity: .24; }
+.page-studio .digital-section { background: #14221c; }
+@media (max-width: 1100px) and (min-width: 721px) {
+  .studio-stage .studio-composition { width: calc(100% - 72px); }
+}
+@media (max-width: 720px) {
+  .page-studio .studio-stage {
+    --studio-art-height: min(154vw, 800px);
+    min-height: max(calc(var(--studio-art-height) + 130px), calc(100svh - 76px));
+  }
+  .studio-stage .studio-composition { width: calc(100% - 44px); padding-block: calc(var(--studio-art-height) * .84) 52px; }
+  .studio-stage .studio-lettering h1 { font-size: calc(var(--studio-art-height) * .105); }
+  .studio-stage h1 .studio-title-prefix { margin: 0 0 6px 4px; }
+  .studio-foreground { bottom: auto; height: var(--studio-art-height); mask-image: linear-gradient(#000, #000 70%, transparent 100%); }
+  .studio-composition .chapter-back { top: 16px; font-size: 11px; }
+  .studio-credit { top: 34px; font-size: 7px; letter-spacing: .1em; }
+  .studio-statement { font-size: clamp(23px, 6.5vw, 29px); }
+  .studio-description { margin-top: 12px; max-width: 290px; }
+  .studio-explore { margin-top: 13px; }
+  .studio-stage .hero-mist { top: 50%; bottom: -110px; opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-room, .studio-stage .studio-cutout { transform: none; }
+}

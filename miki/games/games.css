@@ -1,0 +1,92 @@
+/* One candlelit games room, with live lettering and a separate foreground. */
+.page-games { position: relative; }
+.page-games em { font-style: normal; }
+.page-games .atmosphere-toggle { position: absolute; }
+.page-games .games-stage {
+  --games-art-height: max(760px, 66.667vw);
+  --games-art-top: 0px;
+  min-height: max(var(--games-art-height), calc(100svh - 88px));
+  overflow: clip;
+}
+.games-stage .hero-image {
+  inset: 0 auto auto calc(35% - var(--games-art-height) * .525);
+  width: calc(var(--games-art-height) * 1.5); max-width: none;
+  height: var(--games-art-height); object-fit: contain;
+}
+.games-room {
+  position: absolute; inset: var(--games-art-top) 0 auto; height: var(--games-art-height); z-index: -3;
+  transform: translate3d(var(--room-x, 0px), var(--room-y, 0px), 0);
+  transition: transform .8s ease-out;
+}
+.games-room .hero-image {
+  z-index: auto;
+  mask-image: linear-gradient(180deg, #000, #000 76%, transparent 100%);
+}
+.games-lettering {
+  position: absolute;
+  top: calc(var(--games-art-height) * .12);
+  left: calc(35% - var(--games-art-height) * .26);
+}
+.games-stage .games-lettering h1 {
+  max-width: none; font-size: calc(var(--games-art-height) * .18);
+  line-height: .8; letter-spacing: -.055em; white-space: nowrap;
+  color: #e2cca4; font-weight: 500;
+  text-shadow: 0 3px 20px #100b05, 0 1px 3px #100b0599;
+}
+.games-stage h1 .games-title-prefix {
+  display: block; margin: 0 0 -.45em 4px;
+  font-size: .48em; line-height: .8; letter-spacing: -.025em;
+}
+.games-stage .games-lettering h1 em { display: block; color: inherit; font-weight: 500; }
+.games-foreground {
+  position: absolute; inset: var(--games-art-top) 0 auto;
+  height: var(--games-art-height); z-index: 0;
+  perspective: 1400px; pointer-events: none;
+  mask-image: linear-gradient(#000, #000 78%, transparent 100%);
+}
+.games-stage .games-cutout {
+  z-index: auto;
+  /* Preserve the cutout's proportions while aligning it with the room. */
+  transform: translate3d(calc(var(--games-art-height) * .117 + var(--games-x, 0px)), calc(var(--games-art-height) * -.049 + var(--games-y, 0px)), 0) rotateY(var(--games-turn, 0deg)) scale(.85);
+  transform-origin: center;
+  transition: transform .5s ease-out;
+  filter: drop-shadow(-8px 10px 9px #0009) drop-shadow(1px -1px 1px #dbc39520);
+}
+.games-stage .hero-shade {
+  inset: 0; height: auto; z-index: 1; pointer-events: none;
+  background: linear-gradient(0deg, #0c1412 0%, #0c1412cc 12%, transparent 38%), linear-gradient(180deg, #09120d55, transparent 16%);
+}
+.games-stage .games-composition {
+  min-height: inherit; width: min(1420px, calc(100% - 112px));
+  padding-block: calc(var(--games-art-height) * .81) 68px;
+}
+.games-composition .chapter-back { position: absolute; top: 30px; left: 0; margin: 0; text-shadow: 0 2px 12px #000; }
+.games-credit { position: absolute; top: 43px; right: 0; color: #d5c6a5; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; text-shadow: 0 2px 12px #000; }
+.games-intro { max-width: 420px; text-shadow: 0 2px 18px #0008; }
+.games-statement { font: 400 30px/1.2 var(--serif); color: #e2d2b1; }
+.games-description { margin-top: 14px; max-width: 320px; font-size: 12px; line-height: 1.8; color: #c5bdab; }
+.games-explore { margin-top: 17px; font-size: 11px; color: #dfcba3; }
+.games-stage .hero-mist { top: 60%; bottom: -160px; z-index: 2; opacity: .65; }
+.page-games .ambient-mist { opacity: .24; }
+@media (max-width: 1100px) and (min-width: 721px) {
+  .games-stage .games-composition { width: calc(100% - 72px); }
+}
+@media (max-width: 720px) {
+  .page-games .games-stage {
+    --games-art-height: min(118vw, 760px);
+    --games-art-top: 56px;
+    min-height: max(calc(var(--games-art-height) + var(--games-art-top) + 180px), calc(100svh - 76px));
+  }
+  .games-stage .games-composition { width: calc(100% - 44px); padding-block: calc(var(--games-art-top) + var(--games-art-height) * .98) 52px; }
+  .games-room .hero-image { mask-image: linear-gradient(180deg, transparent, #000 10%, #000 76%, transparent 100%); }
+  .games-composition .chapter-back { top: 16px; font-size: 11px; }
+  .games-credit { top: 34px; font-size: 7px; letter-spacing: .1em; }
+  .games-statement { font-size: clamp(25px, 7.4vw, 31px); }
+  .games-description { margin-top: 12px; max-width: 290px; }
+  .games-explore { margin-top: 13px; }
+  .games-stage .hero-mist { top: 49%; bottom: -110px; opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .games-room { transform: none; }
+  .games-stage .games-cutout { transform: translate3d(calc(var(--games-art-height) * .117), calc(var(--games-art-height) * -.049), 0) scale(.85); }
+}

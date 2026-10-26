@@ -14,13 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-<link rel="preload" href="/img/miki-voice.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/miki-voice-cutout.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/voice-room.webp" as="image">
 <link rel="stylesheet" href="/styles.css?v=547eb3faf870">
 <link rel="stylesheet" href="/atmosphere.css?v=68209c9ed7d1">
-<link rel="stylesheet" href="/chapters.css?v=3daf5b56336b">
+<link rel="stylesheet" href="/chapters.css?v=ca0d8881b631">
+<link rel="stylesheet" href="/voice/voice.css?v=63271eea1bd2">
 <script src="/main.js?v=83d4034466a9" defer>
 </script>
 <script src="/atmosphere.js?v=5106da3b4f30" defer></script>
+<script src="/voice/depth.js?v=7c0ba9132fa7" defer></script>
 <title>The voice — Miki, King of Beans</title>
 <link rel="canonical" href="https://miki.keymanagements.org/voice/">
 </head>
@@ -68,47 +71,22 @@
 </div>
 </header>
 <main id="main">
-<section class="hero chapter-hero" id="top" aria-labelledby="chapter-title">
-<div class="hero-scene"><img class="hero-image" src="/img/miki-voice.webp" width="1536" height="1024" alt="Miki seated in profile at a brass microphone, holding a headphone to his ear and a script on his knee" fetchpriority="high"></div>
-<div class="hero-shade" aria-hidden="true"></div>
-<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
-<div class="hero-content container">
-<a class="chapter-back" href="/">← Back to the kingdom</a>
-<p class="eyebrow"><span></span> 01 / Voice acting</p>
-<h1 id="chapter-title">The <em>voice.</em></h1>
-<p class="chapter-lead">A voice behind the mask. A story that stays with you.</p>
-<a class="button button-gold chapter-action" href="#voice">Meet the voice <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-</div><div class="hero-footer container"><span class="mono">MIKI / KING OF BEANS</span><a class="scroll-cue" href="#voice">Discover this chapter <span aria-hidden="true">↓</span></a></div>
+<section class="hero chapter-hero voice-stage" id="top" aria-labelledby="voice-title">
+  <div class="hero-scene" aria-hidden="true"><img class="hero-image voice-room" src="/img/voice-room.webp" width="1536" height="1024" alt=""></div>
+  <div class="voice-performance"><img class="hero-image voice-cutout" src="/img/miki-voice-cutout.webp" width="1536" height="1024" alt="Miki seated at a brass microphone, holding his headphones as he brings a script to life" fetchpriority="high"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="voice-lettering"><h1 id="voice-title"><span class="voice-title-prefix">The</span><em>voice.</em></h1></div>
+  <div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
+  <div class="hero-content container voice-composition">
+    <a class="chapter-back" href="/">← Back to the kingdom</a>
+    <span class="voice-credit">Miki · Voice actor</span>
+    <div class="voice-intro" id="voice">
+      <p class="voice-statement">A voice behind the mask.<br><em>A story that stays with you.</em></p>
+      <p class="voice-description">Characters, scripts, and stories, brought to life.</p>
+      <p class="voice-reel">Voice reel <span aria-hidden="true">/</span> Coming soon</p>
+    </div>
+  </div>
 </section>
-<section id="voice" class="voice-section paper section" aria-labelledby="voice-title">
-<div class="container voice-layout">
-<figure class="voice-art reveal">
-<div class="arch-image">
-<img src="/img/voice-original.webp" width="1122" height="1402" alt="Original artwork of a brass studio microphone, green velvet curtains, and an antique key" loading="lazy">
-</div>
-<figcaption>
-<span class="mono">THE VOICE / MIKI</span>
-<svg class="icon">
-<use href="#spark"/>
-</svg>
-</figcaption>
-</figure>
-<div class="voice-copy reveal">
-<p class="eyebrow">01 / The voice</p>
-<h2 id="voice-title">You don’t need<br> to see a face<br>to <em>feel a story.</em>
-</h2>
-<p>The mask is part of the mystery. The voice is where it comes alive. Miki brings characters, scripts, and stories into the world of the Bean Kingdom.</p>
-<blockquote>“He speaks, and the kingdom listens.”</blockquote>
-<div class="voice-note">
-<span class="status-dot" aria-hidden="true">
-</span>
-<span>Voice reel coming soon</span>
-<span class="mono">STAY TUNED</span>
-</div>
-</div>
-</div>
-</section>
-<nav class="chapter-next" aria-label="Continue exploring"><div class="container chapter-next-inner"><a class="chapter-home" href="/">← Back to the kingdom</a><a class="next-link" href="/games/"><span class="mono">NEXT CHAPTER / 02</span><span>The games <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a></div></nav>
 </main>
 <div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="wind-leaves" aria-hidden="true"></div>

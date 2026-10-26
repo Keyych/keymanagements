@@ -14,13 +14,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-<link rel="preload" href="/img/miki-studio.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/miki-studio-cutout.webp" as="image" fetchpriority="high">
+<link rel="preload" href="/img/studio-room.webp" as="image">
 <link rel="stylesheet" href="/styles.css?v=547eb3faf870">
 <link rel="stylesheet" href="/atmosphere.css?v=68209c9ed7d1">
-<link rel="stylesheet" href="/chapters.css?v=3daf5b56336b">
+<link rel="stylesheet" href="/chapters.css?v=ca0d8881b631">
+<link rel="stylesheet" href="/studio/studio.css?v=aaf290981226">
 <script src="/main.js?v=83d4034466a9" defer>
 </script>
 <script src="/atmosphere.js?v=5106da3b4f30" defer></script>
+<script src="/studio/depth.js?v=ca39ba7f5373" defer></script>
 <title>The studio — Miki, King of Beans</title>
 <link rel="canonical" href="https://miki.keymanagements.org/studio/">
 </head>
@@ -68,17 +71,23 @@
 </div>
 </header>
 <main id="main">
-<section class="hero chapter-hero" id="top" aria-labelledby="chapter-title">
-<div class="hero-scene"><img class="hero-image" src="/img/miki-studio.webp" width="1536" height="1024" alt="Miki viewed from behind at a drafting table, with his feathered cloak draped over a nearby chair" fetchpriority="high"></div>
-<div class="hero-shade" aria-hidden="true"></div>
-<div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span><span class="mist-flow"></span></div>
-<div class="hero-content container">
-<a class="chapter-back" href="/">← Back to the kingdom</a>
-<p class="eyebrow"><span></span> 03 / Beans Digital</p>
-<h1 id="chapter-title">The <em>studio.</em></h1>
-<p class="chapter-lead">Good ideas deserve a place in the world. This is where Miki builds them.</p>
-<a class="button button-gold chapter-action" href="#digital">Explore the studio <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
-</div><div class="hero-footer container"><span class="mono">MIKI / KING OF BEANS</span><a class="scroll-cue" href="#digital">Discover this chapter <span aria-hidden="true">↓</span></a></div>
+<section class="hero chapter-hero studio-stage" id="top" aria-labelledby="studio-title">
+  <div class="studio-room">
+    <img class="hero-image" src="/img/studio-room.webp" width="1536" height="1024" alt="">
+    <div class="studio-lettering"><h1 id="studio-title"><span class="studio-title-prefix">The</span><em>studio.</em></h1></div>
+  </div>
+  <div class="studio-foreground"><img class="hero-image studio-cutout" src="/img/miki-studio-cutout.webp" width="1536" height="1024" alt="Miki looking over his shoulder as he works at a lamp-lit drafting table" fetchpriority="high"></div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-mist atmosphere-region" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
+  <div class="hero-content container studio-composition">
+    <a class="chapter-back" href="/">← Back to the kingdom</a>
+    <span class="studio-credit">Miki · Beans Digital</span>
+    <div class="studio-intro">
+      <p class="studio-statement">Good ideas deserve a place.<br><em>This is where they take shape.</em></p>
+      <p class="studio-description">Websites and apps, built around your world.</p>
+      <a class="text-link studio-explore" href="#digital">Explore the studio <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
 </section>
 <section id="digital" class="digital-section paper section" aria-labelledby="digital-title">
 <div class="container">
@@ -144,7 +153,6 @@
 </div>
 </div>
 </section>
-<nav class="chapter-next" aria-label="Continue exploring"><div class="container chapter-next-inner"><a class="chapter-home" href="/">← Back to the kingdom</a><a class="next-link" href="/court/"><span class="mono">NEXT CHAPTER / 04</span><span>The court <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></span></a></div></nav>
 </main>
 <div class="ambient-mist" aria-hidden="true"><span class="mist-flow"></span><span class="mist-flow"></span></div>
 <div class="wind-leaves" aria-hidden="true"></div>

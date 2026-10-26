@@ -1,0 +1,116 @@
+/* One recording-room composition: Miki leads, the type sits in the scenery. */
+.page-voice { position: relative; }
+.page-voice .atmosphere-toggle { position: absolute; }
+.page-voice .voice-stage {
+  --voice-title-size: clamp(180px, 17.6vw, 270px);
+  --voice-offset: clamp(110px, 12vw, 200px);
+  min-height: max(780px, calc(100svh - 88px));
+  overflow: clip;
+}
+.voice-stage .hero-image {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+}
+.voice-room {
+  transform: scale(1.035) translate3d(var(--room-x, 0px), var(--room-y, 0px), 0);
+  transition: transform .8s ease-out;
+}
+.voice-performance {
+  position: absolute; inset: 0; z-index: 0; overflow: clip;
+  perspective: 1400px; pointer-events: none;
+  mask-image: linear-gradient(#000 0%, #000 70%, transparent 100%);
+}
+.voice-stage .voice-cutout {
+  z-index: auto;
+  transform: translate3d(calc(var(--voice-offset) + var(--voice-x, 0px)), var(--voice-y, 0px), 14px) rotateY(var(--voice-turn, 0deg));
+  transform-origin: 55% 70%;
+  transition: transform .5s ease-out;
+  filter: drop-shadow(-14px 16px 12px #000a) drop-shadow(1px -1px 1px #c5ae7424);
+}
+.voice-performance::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, #08120d40, transparent 48%), linear-gradient(0deg, #0c1412b3, transparent 30%);
+}
+.voice-stage .hero-shade {
+  inset: 0;
+  height: auto;
+  background: linear-gradient(90deg, #08120dd9, #08120d85 27%, #08120d00 57%), linear-gradient(0deg, #0c1412 0%, #0c141255 12%, transparent 38%);
+}
+.voice-stage .voice-composition {
+  width: min(1420px, calc(100% - 112px));
+  min-height: inherit;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding-block: 130px 76px;
+}
+.voice-composition .chapter-back { position: absolute; top: 30px; left: 0; margin: 0; }
+.voice-credit { position: absolute; top: 43px; right: 0; color: #cebe9c; font-size: 9px; letter-spacing: .17em; text-transform: uppercase; }
+.voice-lettering {
+  position: absolute; top: 18%; left: max(56px, calc((100% - 1420px) / 2)); z-index: -1;
+  transform: translate3d(var(--room-x, 0px), var(--room-y, 0px), 0);
+  transition: transform .8s ease-out;
+}
+.voice-stage .voice-lettering h1 {
+  max-width: none; font-size: var(--voice-title-size); line-height: .78; letter-spacing: -.065em;
+  font-weight: 400; white-space: nowrap; color: #dbc397;
+  text-shadow: 0 3px 25px #050b0780;
+}
+.voice-stage h1 .voice-title-prefix {
+  display: block; margin: 0 0 15px 8px;
+  font-size: .25em; line-height: 1; letter-spacing: -.035em;
+}
+.voice-stage .voice-lettering h1 em {
+  display: block; color: #dbc397; font-weight: 400;
+  background: linear-gradient(155deg, #f1dfb9 10%, #d9bf8c 55%, #a78d5f);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.voice-intro {
+  position: absolute; top: calc(18% + var(--voice-title-size) * 1.1 + 45px);
+  width: min(390px, 38%);
+  text-shadow: 0 2px 18px #0006;
+  scroll-margin-top: 120px;
+}
+.voice-statement { font: 400 30px/1.2 var(--serif); color: #e2d2b1; }
+.voice-statement em { color: inherit; }
+.voice-description { margin-top: 14px; max-width: 340px; font-size: 11px; line-height: 1.8; color: #c5bdab; }
+.voice-reel { margin-top: 25px; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; color: #d9c7a2; }
+.voice-reel span { margin-inline: 9px; color: #a38e66; }
+.voice-stage .hero-mist { top: 58%; bottom: -190px; opacity: .75; }
+.page-voice .ambient-mist { opacity: .24; }
+@media (min-width: 1600px) {
+  .page-voice .voice-stage { min-height: max(900px, calc(100svh - 88px)); }
+}
+@media (max-width: 1100px) and (min-width: 721px) {
+  .page-voice .voice-stage { --voice-title-size: 19vw; --voice-offset: 150px; }
+  .voice-stage .voice-composition { width: calc(100% - 72px); }
+  .voice-stage .hero-image { object-position: 52% top; }
+  .voice-intro { width: 360px; }
+  .voice-lettering { left: 36px; }
+  .voice-statement { font-size: 28px; }
+  .voice-stage .hero-shade { background: linear-gradient(90deg, #08120ddd, #08120d70 34%, transparent 68%), linear-gradient(0deg, #0c1412, transparent 50%); }
+}
+@media (max-width: 720px) {
+  .page-voice .voice-stage {
+    --voice-offset: 0px;
+    --voice-scene-height: min(154vw, 800px);
+    min-height: max(calc(var(--voice-scene-height) + 120px), calc(100svh - 76px));
+  }
+  .voice-stage .hero-image { width: 100%; height: 100%; object-fit: cover; object-position: 54% top; }
+  .voice-performance { bottom: auto; height: var(--voice-scene-height); mask-image: linear-gradient(#000 0%, #000 72%, transparent 100%); }
+  .voice-stage .voice-cutout { object-position: 48% top; }
+  .voice-stage .hero-shade { inset: 0; height: auto; background: linear-gradient(0deg, #0c1412 0%, #09120db3 18%, #09120d50 38%, transparent 62%), linear-gradient(180deg, #09120d50, transparent 15%); }
+  .voice-stage .voice-composition { width: calc(100% - 44px); justify-content: flex-start; padding-block: calc(var(--voice-scene-height) * .83) 52px; }
+  .voice-composition .chapter-back { top: 16px; font-size: 11px; text-shadow: 0 2px 10px #000; }
+  .voice-credit { top: 34px; right: 0; font-size: 7px; letter-spacing: .1em; }
+  /* Anchor the title to the gap between the mic and Miki, not below the picture. */
+  .voice-lettering { top: calc(var(--voice-scene-height) * .445); left: calc(48% - var(--voice-scene-height) * .233); width: calc(var(--voice-scene-height) * .24); text-align: center; }
+  .voice-stage .voice-lettering h1 { font-size: calc(var(--voice-scene-height) * .117); }
+  .voice-stage h1 .voice-title-prefix { margin: 0 0 7px; font-size: .3em; }
+  .voice-intro { position: static; width: 100%; max-width: 390px; }
+  .voice-statement { font-size: clamp(24px, 6.7vw, 29px); }
+  .voice-description { font-size: 12px; margin-top: 12px; max-width: 300px; }
+  .voice-reel { margin-top: 20px; }
+  .voice-stage .hero-mist { top: 53%; bottom: -110px; opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-stage .voice-cutout { transform: translateX(var(--voice-offset)); }
+  .voice-room, .voice-lettering { transform: none; }
+}

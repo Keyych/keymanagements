@@ -1,4 +1,4 @@
-/* Shared chapter pages retain the forest palette and luminous mist. */
+/* Shared subpages retain the forest palette and luminous mist. */
 #navigation a[aria-current="page"] { color: var(--gold); }
 #navigation .nav-support[aria-current="page"] { border-color: var(--gold); }
 .chapter-hero { min-height: max(680px, 66.667vw); }
@@ -31,14 +31,6 @@
 .home-support > .container { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .home-support h2 { max-width: 650px; font-size: 54px; }
 .home-support h2 em { color: #d1c599; }
-.chapter-next { background: #17261e; border-block: 1px solid var(--line); }
-.chapter-next-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: 40px; }
-.chapter-home { padding-block: 12px; font-size: 12px; color: #c3cfb7; }
-.chapter-home:hover { color: var(--gold); }
-.next-link { text-align: right; }
-.next-link > .mono { color: var(--gold); font-size: 9px; }
-.next-link > span:last-child { display: flex; align-items: center; gap: 28px; margin-top: 8px; font: 38px/1.2 var(--serif); }
-.next-link .icon { width: 28px; height: 28px; }
 .chapter-page .support-section { position: relative; isolation: isolate; }
 @media (max-width: 1100px) {
   .chapter-entry { grid-template-columns: 30px 180px 1fr 65px; gap: 24px; }
@@ -68,10 +60,6 @@
   .home-support > .container { display: block; }
   .home-support h2 { font-size: 44px; }
   .home-support .button { margin-top: 28px; }
-  .chapter-next-inner { align-items: flex-start; padding-block: 30px; gap: 20px; }
-  .chapter-home { font-size: 11px; max-width: 100px; }
-  .next-link > span:last-child { font-size: 30px; gap: 12px; }
-  .next-link > .mono { font-size: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .chapter-entry:hover .chapter-open .icon { transform: none; }
