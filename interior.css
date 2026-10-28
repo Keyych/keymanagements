@@ -1,0 +1,88 @@
+/* The rooms beyond the entrance share its plum walls and brass architecture. */
+.interior-page { --bg: #140d14; --line: #b88a5638; min-height: 100svh; background: #140d14; isolation: isolate; display: flex; flex-direction: column; }
+.interior-page main { flex: 1; }
+.interior-room { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; background: radial-gradient(ellipse at 35% 44%,#6736482e,transparent 62%),linear-gradient(90deg,#0d090e,#24141e 45%,#180e17 75%,#0f0a10); }
+.interior-room::after { content: ''; position: absolute; inset: 0; opacity: .25; background: repeating-linear-gradient(89deg,transparent 0 3px,#b27c6a09 4px 5px); }
+.room-moulding { position: absolute; top: 19%; bottom: 7%; width: 24%; border: 1px solid #a9784220; border-radius: 200px 200px 0 0; box-shadow: inset 0 0 0 8px #120c1266,inset 0 0 0 9px #b8885410; }
+.moulding-left { left: -16%; }.moulding-right { right: -17%; }
+.room-light { position: absolute; top: 41%; width: 5px; height: 52px; border-radius: 3px; background: linear-gradient(90deg,#87663f,#e6c28a,#87663f); box-shadow: 0 0 9px #e1b47138,0 0 65px 25px #c5884814; opacity: .65; }
+.light-left { left: 25px; }.light-right { right: 25px; }
+.interior-page .container { max-width: 1180px; width: calc(100% - 120px); }
+.interior-page .site-header { border-color: #b88a5624; background: #0f0a1033; }
+.interior-page .header-inner { max-width: none; height: 82px; width: 92%; }
+.interior-page .brand-mark { width: 34px; height: 34px; }.interior-page .wordmark { font-size: 35px; }.interior-page .wordmark > span { font-size: 7px; margin-top: 10px; }
+.interior-page .main-nav { font-size: 12px; gap: 32px; }
+.interior-page .main-nav .nav-contact { border-color: #bf966361; gap: 22px; background: linear-gradient(120deg,#4c273544,#29172099); }
+.interior-page .main-nav .nav-contact:hover,.interior-page .main-nav .nav-contact[aria-current] { background: linear-gradient(100deg,#d5b785,#b99561); color: #22121c; border-color: #d7b680; }
+.interior-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; align-items: center; padding-block: 62px 58px; }
+.interior-visual { width: 100%; max-width: 360px; margin-inline: auto; padding: 12px; animation: room-arrival .8s ease both; }
+.arched-portrait { position: relative; isolation: isolate; }
+.arched-portrait::before { content: ''; position: absolute; z-index: -1; inset: -10px; border: 1px solid #9f784f; border-radius: 210px 210px 0 0; background: linear-gradient(110deg,#54392d,#ac8551 12%,#392520 17%,#7d583a 50%,#b68c55 86%,#4e3429); box-shadow: 0 0 0 4px #21121d,0 0 0 5px #b9935b3b,0 15px 30px #0006,inset 0 0 0 4px #21151d,inset 0 0 0 5px #ba925866; }
+.arched-portrait::after { content: ''; position: absolute; bottom: -13px; left: -17px; right: -17px; height: 8px; background: linear-gradient(#bc9764,#7c573b 25%,#35201f 40%,#26151c 70%,#805838); box-shadow: 0 7px 10px #0007; }
+.arched-portrait img { width: 100%; height: 510px; object-fit: cover; object-position: center 42%; border-radius: 200px 200px 0 0; }
+.arch-crest { position: absolute; z-index: 3; top: -23px; left: 50%; width: 23px; height: 28px; transform: translateX(-50%); }
+.arch-crest svg { width: 100%; height: 100%; fill: #2b1921; stroke: #c5a16d; stroke-width: 1; }
+.arched-portrait figcaption { position: absolute; bottom: 0; inset-inline: 0; padding: 75px 19px 27px; background: linear-gradient(transparent,#160e17dc 70%,#160e17f7); text-align: center; }
+.arched-portrait figcaption > span { font-size: 8px; letter-spacing: .19em; color: #d0af80; }
+.arched-portrait figcaption > p { margin-top: 10px; font: 29px/1.08 var(--serif); }
+.interior-copy { min-width: 0; animation: room-arrival .7s ease .08s both; }
+.interior-copy > .eyebrow { font-size: 10px; letter-spacing: .22em; margin-bottom: 19px; }
+.interior-copy > .eyebrow::before { content: ''; width: 23px; height: 1px; background: linear-gradient(90deg,transparent,#c9a574); }
+.interior-copy h1 { font-size: clamp(56px,5.5vw,76px); margin: 0 0 24px; line-height: .98; }
+.interior-copy .page-intro { font-size: 16px; line-height: 1.7; max-width: 460px; }
+.interior-page .button-primary { position: relative; gap: 30px; background: linear-gradient(115deg,#623344,#3b202f); border: 1px solid #c29a665c; box-shadow: inset 0 0 0 3px #32192766,0 4px 14px #0002; }
+.interior-page .button-primary:hover { background: linear-gradient(115deg,#794055,#4c293d); border-color: #cba06d; }
+.interior-page .button-primary .icon { color: var(--accent); }
+.interior-page .text-link { color: #dbbc90; }
+.support-room { align-items: start; grid-template-columns: .8fr 1.2fr; gap: 90px; }
+.support-room .interior-visual { margin-top: 48px; }
+.support-room .arched-portrait img { object-position: 47% center; }
+.support-room .interior-copy h1 { font-size: 65px; }
+.support-room .service-list { margin-top: 28px; }
+.support-room .service-group { border-color: #b88a5640; }
+.support-room .service-group summary { padding-block: 20px; gap: 14px; }
+.support-room .service-number { border: 1px solid #b88a5659; border-radius: 14px; min-width: 25px; height: 33px; font-size: 15px; display: flex; justify-content: center; align-items: center; padding: 0; align-self: center; background: linear-gradient(100deg,#4a2b32,#291821); }
+.support-room .service-group h2 { font-size: 28px; }
+.support-room .service-caption { font-size: 12px; }
+.support-room .service-content { padding: 0 25px 23px 40px; gap: 19px; }
+.support-room .service-content h3 { color: #ebd6bd; font-size: 14px; }
+.support-room .service-content p { font-size: 14px; line-height: 1.7; }
+.support-room .service-note { margin-top: 20px; font-size: 12px; }
+.support-room .text-link { margin-top: 12px; font-size: 13px; }
+.about-room .about-lead { font-size: 20px; margin-bottom: 17px; }
+.about-room .about-copy > p:not(.eyebrow):not(.about-lead) { font-size: 15px; max-width: 480px; margin-top: 14px; }
+.about-room .traits { margin-block: 22px; padding-block: 18px; gap: 28px; }
+.about-room .traits li { font-size: 11px; }
+.about-room .traits .icon { width: 21px; height: 21px; }
+.contact-room { grid-template-columns: 1.15fr .85fr; gap: 100px; }
+.contact-room .interior-copy h1 { font-size: 72px; }
+.contact-room .contact-copy .button { margin-top: 27px; }
+.contact-room .email-row { margin-top: 22px; gap: 16px; }
+.contact-room .email-row > a { font-size: 15px; }.contact-room .email-row button { border-color: #b88a5654; background: #3f222b40; }
+.contact-room .contact-note { padding-top: 13px; font-size: 13px; }
+.interior-page .process { padding-block: 34px 46px; }
+.interior-page .process-heading { margin-bottom: 24px; }
+.interior-page .process h2 { font-size: 32px; }
+.interior-page .steps { gap: 20px; }
+.interior-page .steps li { border: 1px solid #b68a5633; background: linear-gradient(115deg,#3c222c66,#25151f55); box-shadow: inset 0 0 0 4px #140d142e; padding: 26px 22px 24px; }
+.interior-page .steps li > span { position: static; display: block; width: 25px; height: 32px; line-height: 30px; text-align: center; border: 1px solid #b88a5666; border-radius: 14px; margin-bottom: 18px; font-size: 16px; }
+.interior-page .steps h3 { font-size: 26px; }.interior-page .steps p { font-size: 13px; }
+.room-navigation { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-top: 1px solid #b88a5633; padding-block: 23px; }
+.return-door { display: flex; align-items: center; gap: 12px; color: var(--muted); font-size: 12px; min-height: 44px; }.return-door .icon { color: var(--accent); }.return-door:hover { color: var(--accent); }
+.next-room { min-height: 60px; padding: 7px 0; }.next-room small { display: block; font-size: 8px; letter-spacing: .17em; color: #c7a880; margin-bottom: 4px; }.next-room > span { display: flex; gap: 32px; align-items: center; font: 24px var(--serif); }.next-room .icon { width: 19px; color: var(--accent); transition: transform .2s; }.next-room:hover .icon { transform: translateX(4px); }
+.interior-page .site-footer { border-color: #b88a5620; background: #0c090d30; }.interior-page .footer-inner { min-height: 75px; }.interior-page .footer-signature { font-size: 24px; }.interior-page .footer-signature span { font-size: 8px; }.interior-page .footer-inner small { font-size: 10px; }.interior-page .footer-inner p { font-size: 19px; }
+@keyframes room-arrival { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 1100px) {
+ .interior-page .container { width: calc(100% - 80px); }.interior-page .header-inner { width: 92%; }.interior-layout,.support-room,.contact-room { gap: 52px; }.interior-visual { max-width: 320px; }.arched-portrait img { height: 465px; }.interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: 61px; }.light-left { left: 14px; }.light-right { right: 14px; }.about-room .traits { gap: 18px; }.support-room .service-group h2 { font-size: 25px; }
+}
+@media (max-width: 800px) {
+ .interior-page .container { width: calc(100% - 56px); }.interior-page .header-inner { width: 92%; }.interior-page .main-nav { gap: 20px; font-size: 11px; }.interior-page .main-nav .nav-contact { padding-inline: 13px; gap: 12px; }.interior-layout,.support-room,.contact-room { gap: 32px; padding-block: 46px; }.interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: 54px; }.interior-visual { padding: 10px; }.arched-portrait img { height: 420px; }.arched-portrait figcaption { padding-inline: 13px; }.arched-portrait figcaption > p { font-size: 25px; }.arched-portrait figcaption > span { font-size: 7px; }.interior-copy .page-intro { font-size: 15px; }.support-room .service-group h2 { font-size: 23px; }.support-room .service-caption { font-size: 11px; }.support-room .service-group summary { gap: 10px; }.support-room .service-content { padding-left: 35px; padding-right: 0; }.support-room .service-content p { font-size: 13px; }.contact-room .email-row { flex-wrap: wrap; }.contact-room .email-row > a { font-size: 14px; }.about-room .traits { gap: 14px; }.interior-page .process h2 { font-size: 30px; }.interior-page .steps { gap: 12px; }.interior-page .steps li { padding: 21px 17px; }.interior-page .steps h3 { font-size: 24px; }.room-navigation { padding-block: 20px; }.next-room > span { font-size: 22px; gap: 18px; }
+}
+@media (max-width: 640px) {
+ .interior-page .container { width: calc(100% - 44px); }.interior-page .header-inner { height: 76px; width: calc(100% - 40px); }.interior-page .wordmark { font-size: 31px; }.interior-page .brand-mark { width: 30px; height: 30px; }.interior-page .main-nav { top: 75px; gap: 5px; font-size: 15px; background: linear-gradient(125deg,#261620,#180f17); border-color: #b88a5640; padding: 15px 20px 22px; }.interior-page .main-nav .nav-contact { margin-top: 7px; padding-inline: 13px; }.interior-page .menu-toggle { border-color: #b88a5654; }
+ .interior-layout,.support-room,.contact-room { grid-template-columns: 1fr; gap: 42px; padding-block: 34px 40px; }.interior-copy { grid-row: 1; }.interior-copy > .eyebrow { font-size: 9px; margin-bottom: 19px; }.interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: clamp(53px,14.5vw,68px); line-height: 1; margin-bottom: 23px; }.interior-copy .page-intro { font-size: 16px; }.interior-visual,.support-room .interior-visual { width: min(100%,300px); margin: 0 auto; padding: 12px; }.arched-portrait img { height: 400px; }.arched-portrait figcaption > p { font-size: 27px; }.arched-portrait figcaption > span { font-size: 8px; }.room-light { display: none; }.room-moulding { width: 40%; }.moulding-left { left: -34%; }.moulding-right { right: -34%; }
+ .support-room .service-list { margin-top: 26px; }.support-room .service-group h2 { font-size: 26px; }.support-room .service-caption { font-size: 12px; }.support-room .service-content p { font-size: 14px; }.support-room .service-content { padding-left: 39px; }.support-room .service-group summary { gap: 14px; padding-block: 21px; }.about-room .about-copy > p:not(.eyebrow):not(.about-lead) { font-size: 16px; }.about-room .traits { gap: 15px; }.contact-room .email-row { flex-wrap: nowrap; gap: 10px; }.contact-room .email-row > a { font-size: clamp(12px,3.7vw,15px); }.contact-room .contact-note { font-size: 14px; }.contact-room .email-row button { font-size: 11px; }
+ .interior-page .process { padding-block: 28px 36px; }.interior-page .process-heading { gap: 15px; }.interior-page .process h2 { font-size: 35px; }.interior-page .steps { gap: 13px; }.interior-page .steps li { padding: 23px; }.interior-page .steps h3 { font-size: 28px; }.interior-page .steps p { font-size: 14px; }.interior-page .steps li > span { margin-bottom: 14px; }
+ .room-navigation { gap: 15px; flex-wrap: wrap; padding-block: 17px; }.return-door { font-size: 11px; }.next-room { margin-left: auto; }.next-room > span { font-size: 22px; }.interior-page .footer-inner { gap: 13px; min-height: 98px; }.interior-page .footer-inner p { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { .interior-copy,.interior-visual { animation: none; } }

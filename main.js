@@ -1,5 +1,16 @@
 document.documentElement.classList.add('js');
 
+// Preserve links to the previous single-page sections.
+if (document.body.dataset.page === 'home') {
+  const destinations = { '#services': 'services/', '#about': 'about/', '#process': 'contact/#process', '#contact': 'contact/' };
+  const redirectLegacySection = () => {
+    const destination = destinations[window.location.hash];
+    if (destination) window.location.replace(new URL(destination, window.location.href));
+  };
+  redirectLegacySection();
+  window.addEventListener('hashchange', redirectLegacySection);
+}
+
 const menuToggle = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#main-nav');
 
@@ -16,19 +27,18 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-expanded', String(isOpen));
   menuToggle.querySelector('span').textContent = isOpen ? 'Close' : 'Menu';
 });
-
 navigation.addEventListener('click', event => {
   if (event.target.closest('a')) closeMenu();
 });
-
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') closeMenu(true);
 });
-
 document.addEventListener('click', event => {
   if (!event.target.closest('.header-inner')) closeMenu();
 });
-
+document.addEventListener('focusin', event => {
+  if (!event.target.closest('.header-inner')) closeMenu();
+});
 window.matchMedia('(min-width: 641px)').addEventListener('change', () => closeMenu());
 
 const copyButton = document.querySelector('#copyMail');
@@ -36,7 +46,7 @@ const email = document.querySelector('#mail');
 const copyStatus = document.querySelector('#copyStatus');
 let copyReset;
 
-copyButton.addEventListener('click', async () => {
+copyButton?.addEventListener('click', async () => {
   clearTimeout(copyReset);
   try {
     if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
