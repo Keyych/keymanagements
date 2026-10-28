@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200">
+ <defs>
+  <linearGradient id="bronze"><stop stop-color="#332318"/><stop offset=".25" stop-color="#997442"/><stop offset=".48" stop-color="#d1b078"/><stop offset=".68" stop-color="#795532"/><stop offset="1" stop-color="#38271d"/></linearGradient>
+  <linearGradient id="glass" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#dca15e" stop-opacity=".32"/><stop offset=".45" stop-color="#ffcf86" stop-opacity=".68"/><stop offset="1" stop-color="#b67336" stop-opacity=".28"/></linearGradient>
+  <radialGradient id="light"><stop stop-color="#fff2c6" stop-opacity=".96"/><stop offset=".32" stop-color="#ffd086" stop-opacity=".65"/><stop offset="1" stop-color="#d98538" stop-opacity="0"/></radialGradient>
+ </defs>
+ <path d="M56 24q4-6 8 0v145q-4 8-8 0Z" fill="#3b2a22" stroke="#947044"/>
+ <path d="M61 50C90 20 44 4 50 27c2 8 13 6 13 0" fill="none" stroke="url(#bronze)" stroke-width="4"/>
+ <ellipse cx="60" cy="39" rx="7" ry="10" fill="none" stroke="#ac8855" stroke-width="2.5"/>
+ <path d="M60 43 91 64H29Z" fill="url(#bronze)" stroke="#c7a373" stroke-width=".9"/>
+ <path d="M24 64h72v7H24z" fill="url(#bronze)" stroke="#a6804a"/>
+ <path d="M29 72h62l-8 76H37Z" fill="url(#glass)" stroke="#a7814e" stroke-width="2"/>
+ <ellipse cx="60" cy="111" rx="31" ry="43" fill="url(#light)"/>
+ <path d="M45 139h30l-4 9H49Z" fill="#513622" stroke="#bd9458"/>
+ <path d="M54 134h12v8H54z" fill="url(#bronze)"/>
+ <path d="M59 135c-14-13 2-20-1-39 16 16 20 25 7 38Z" fill="#f4b356"/>
+ <path d="M60 134c-7-9 1-15 2-23 7 11 8 17 2 23Z" fill="#fff1bd"/>
+ <path d="m29 72 8 76m54-76-8 76M47 72l3 76m23-76-3 76" fill="none" stroke="url(#bronze)" stroke-width="3"/>
+ <path d="M34 148h52v8H34zM40 156h40l-10 12H50Z" fill="url(#bronze)" stroke="#977042"/>
+ <path d="M57 168h6l5 8-8 11-8-11Z" fill="url(#bronze)"/>
+ <path d="m37 79 4 30m40-30-3 23" stroke="#ffe6b1" stroke-opacity=".5" stroke-width="1.2"/>
+ <path d="M39 63h42" stroke="#e7c693" stroke-width=".8"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 760" preserveAspectRatio="none">
+ <defs>
+  <linearGradient id="stone"><stop stop-color="#140e12"/><stop offset=".12" stop-color="#4d3939"/><stop offset=".24" stop-color="#7e6358"/><stop offset=".36" stop-color="#49363a"/><stop offset=".55" stop-color="#71574f"/><stop offset=".78" stop-color="#3a292f"/><stop offset=".9" stop-color="#59403d"/><stop offset="1" stop-color="#160e15"/></linearGradient>
+  <linearGradient id="moulding" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#b0926c"/><stop offset=".12" stop-color="#6d5143"/><stop offset=".33" stop-color="#2c1b24"/><stop offset=".68" stop-color="#4a3235"/><stop offset=".86" stop-color="#8e7052"/><stop offset="1" stop-color="#2d1d25"/></linearGradient>
+  <linearGradient id="flute"><stop stop-color="#110b1344"/><stop offset=".45" stop-color="#160d1766"/><stop offset=".75" stop-color="#a17f6233"/><stop offset="1" stop-color="#b8936a55"/></linearGradient>
+  <linearGradient id="base"><stop stop-color="#281a22"/><stop offset=".3" stop-color="#705345"/><stop offset=".58" stop-color="#4a3233"/><stop offset="1" stop-color="#22151e"/></linearGradient>
+ </defs>
+ <path d="M11 10h98v13H11z" fill="url(#moulding)" stroke="#886749" stroke-width=".7"/>
+ <path d="M17 23h86v10H17zM21 33h78v17H21z" fill="url(#stone)"/>
+ <path d="M14 49h92v10H14z" fill="url(#moulding)"/>
+ <path d="M22 59h76l-9 19H31z" fill="url(#stone)"/>
+ <path d="M28 77h64v10H28z" fill="url(#moulding)"/>
+ <path d="M32 87h56l8 584H24z" fill="url(#stone)" stroke="#75533f" stroke-width=".6"/>
+ <path d="M37 95h6l-4 566H30zM49 95h7l-1 566h-9zM62 95h7l3 566h-9zM75 95h7l7 566h-9z" fill="url(#flute)"/>
+ <path d="M34 104 27 655M87 104l6 551" stroke="#ba936047" stroke-width=".7"/>
+ <path d="m45 177 11 5 9-2m-27 166 8 4m21 173 11-3m-28 96 7 3 9-2" fill="none" stroke="#1c111b" stroke-width=".7" opacity=".55"/>
+ <path d="M22 671h76v12H22z" fill="url(#moulding)"/>
+ <path d="M26 683h68l9 16H17z" fill="url(#stone)"/>
+ <path d="M14 699h92v13H14z" fill="url(#moulding)"/>
+ <path d="M19 712h82v27H19z" fill="url(#base)" stroke="#77523d" stroke-width=".6"/>
+ <path d="M9 739h102v13H9z" fill="url(#moulding)"/>
+ <path d="M7 752h106v5H7z" fill="#1a1018"/>
+</svg>

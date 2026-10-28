@@ -1,0 +1,54 @@
+/* Shared architectural framing, kept outside the reading and interaction areas. */
+.side-pillar { position: fixed; z-index: 0; top: 105px; bottom: 64px; width: clamp(66px,6.4vw,100px); pointer-events: none; }
+.pillar-left { left: 16px; }.pillar-right { right: 16px; }
+.pillar-stone { display: block; width: 100%; height: 100%; filter: drop-shadow(6px 8px 7px #0006); }
+.pillar-lantern { position: absolute; width: 73%; height: auto; left: 13.5%; top: 28%; filter: drop-shadow(2px 4px 3px #0008); }
+.lantern-halo { position: absolute; width: 260%; height: 245px; left: -80%; top: calc(28% - 42px); border-radius: 50%; background: radial-gradient(ellipse,#f3b7681f 0%,#ca863c12 28%,transparent 68%); }
+.portal-page .side-pillar { top: 125px; bottom: 64px; width: clamp(64px,6vw,100px); }
+.portal-page .pillar-left { left: clamp(16px,4vw,64px); }.portal-page .pillar-right { right: clamp(16px,4vw,64px); }
+.interior-page .container { max-width: 1180px; width: calc(100% - 280px); }
+.interior-page .header-inner { max-width: none; width: 92%; }
+/* The labels stand alone now that their decorative numbering is removed. */
+.support-room .service-content { padding-left: 0; }
+.support-room .service-group summary { gap: 12px; }
+.interior-page .steps li { padding-top: 26px; }
+@media (max-width: 1399px) and (min-width: 701px) {
+ .portal-page { --door-h: min(clamp(340px,calc(100svh - 310px),470px),calc((100vw - 180px) / 1.98)); }
+ .portal-page .side-pillar { width: 60px; }
+ .portal-page .pillar-left { left: 12px; }.portal-page .pillar-right { right: 12px; }
+ .interior-page .container { width: calc(100% - 200px); }.interior-page .header-inner { width: 92%; }
+ .side-pillar { width: 70px; left: auto; }.pillar-left { left: 8px; }.pillar-right { right: 8px; }
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+ .portal-page .inner-signature { display: none; }
+ .portal-page .door-inside { padding: 35px 17px 18px; }
+ .portal-page .inner-heading h2 { font-size: 28px; }
+ .portal-page .door-link { min-height: 58px; padding-block: 10px; }
+ .portal-page .door-link strong { font-size: 23px; }
+ .portal-page .side-pillar { width: 42px; }.portal-page .pillar-left { left: 7px; }.portal-page .pillar-right { right: 7px; }
+ .portal-page .pillar-lantern { width: 100%; left: 0; }
+ .side-pillar { width: 52px; }.pillar-left { left: 7px; }.pillar-right { right: 7px; }
+ .interior-page .container { width: calc(100% - 156px); }.interior-page .header-inner { width: 92%; }
+ .pillar-lantern { width: 88%; left: 6%; }.lantern-halo { height: 180px; top: calc(28% - 36px); }
+ .interior-layout,.support-room,.contact-room { gap: 30px; }
+ .interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: 52px; }
+ .contact-room .email-row { flex-wrap: wrap; }
+}
+@media (max-width: 700px) {
+ .portal-page .door-scene { transform: translateX(calc(var(--door-w) * .26)) scale(.52); }
+ .portal-ready .entrance:is([data-state="closed"],[data-state="unlocking"],[data-state="closing"]) .door-scene { transform: translateX(0) scale(1); }
+ .side-pillar,.portal-page .side-pillar { top: 108px; bottom: 52px; width: 30px; }
+ .pillar-left,.portal-page .pillar-left { left: 2px; }.pillar-right,.portal-page .pillar-right { right: 2px; }
+ .pillar-stone { filter: drop-shadow(2px 3px 3px #0005); }
+ .pillar-lantern,.portal-page .pillar-lantern { width: 100%; left: 0; top: 31%; }
+ .lantern-halo { width: 220%; left: -60%; top: calc(31% - 20px); height: 120px; }
+ .interior-page .container { width: calc(100% - 90px); }.interior-page .header-inner { width: calc(100% - 40px); }
+ .interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: clamp(44px,12.8vw,66px); }
+ .interior-page .main-nav { left: 0; right: 0; }
+ .interior-page .steps li { padding: 23px 19px; }
+ .support-room .service-group h2 { font-size: 25px; }.support-room .service-content { padding-left: 0; }
+ .contact-room .email-row { flex-wrap: wrap; gap: 8px; }.contact-room .email-row > a { font-size: 14px; }
+ .room-navigation { gap: 8px; }.next-room > span { font-size: 21px; }
+ .portal-page .door-link { gap: 8px; }
+}
+@media (max-width: 350px) { .side-pillar,.portal-page .side-pillar { width: 25px; }.interior-page .container { width: calc(100% - 74px); }.interior-page .header-inner { width: calc(100% - 36px); } }
