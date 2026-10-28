@@ -89,7 +89,7 @@
 .door-link:hover > .icon { transform: translate(2px,-2px); }
 .door-link:focus-visible { outline-offset: 3px; }
 .inner-signature { font: italic 18px var(--serif); color: #c8a982; text-align: center; margin-top: 23px; }
-.door-edge { position: absolute; top: 0; bottom: 0; right: -2px; width: 6px; background: #21111c; transform: rotateY(90deg); transform-origin: center; }
+.door-edge { position: absolute; top: calc(var(--door-w) / 2); bottom: 0; right: -2px; width: 6px; background: #21111c; transform: rotateY(90deg); transform-origin: center; }
 .hinge { position: absolute; left: -6px; width: 9px; height: 32px; border-radius: 3px; background: linear-gradient(90deg,#503825,#ba9159 35%,#735030 75%,#312019); border-top: 3px solid #987346; border-bottom: 3px solid #987346; z-index: 4; }
 .hinge-top { top: 31%; }.hinge-bottom { top: 81%; }
 .portal-ready .door-link { opacity: 0; transform: translateY(16px); }
