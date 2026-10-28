@@ -1,54 +1,62 @@
-/* Shared architectural framing, kept outside the reading and interaction areas. */
-.side-pillar { position: fixed; z-index: 0; top: 105px; bottom: 64px; width: clamp(66px,6.4vw,100px); pointer-events: none; }
-.pillar-left { left: 16px; }.pillar-right { right: 16px; }
-.pillar-stone { display: block; width: 100%; height: 100%; filter: drop-shadow(6px 8px 7px #0006); }
-.pillar-lantern { position: absolute; width: 73%; height: auto; left: 13.5%; top: 28%; filter: drop-shadow(2px 4px 3px #0008); }
-.lantern-halo { position: absolute; width: 260%; height: 245px; left: -80%; top: calc(28% - 42px); border-radius: 50%; background: radial-gradient(ellipse,#f3b7681f 0%,#ca863c12 28%,transparent 68%); }
-.portal-page .side-pillar { top: 125px; bottom: 64px; width: clamp(64px,6vw,100px); }
-.portal-page .pillar-left { left: clamp(16px,4vw,64px); }.portal-page .pillar-right { right: clamp(16px,4vw,64px); }
-.interior-page .container { max-width: 1180px; width: calc(100% - 280px); }
+/* The generated entrance artwork forms the stonework and warm light on both sides. */
+.portal-page,.interior-page { background: #160d13; }
+.room,.interior-room { position: fixed; inset: 0; background: radial-gradient(ellipse at 50% 44%,#3c202b 0%,#26141e 42%,#140c12 85%); overflow: hidden; }
+.room::before,.room::after,.interior-room::after { display: none; }
+.architecture-wing { --wing-w: clamp(150px,26vw,430px); --art-h: calc(100svh - 60px); position: absolute; top: 60px; bottom: 0; width: var(--wing-w); pointer-events: none; background-image: url('./assets/lantern-room.jpg'); background-repeat: no-repeat; background-size: auto var(--art-h); }
+.architecture-wing-left { left: 0; background-position: calc(var(--wing-w) * .42 - var(--art-h) * .425) bottom; mask-image: linear-gradient(to right,#000 65%,transparent 100%); }
+.architecture-wing-right { right: 0; background-position: calc(var(--wing-w) * .58 - var(--art-h) * 1.34) bottom; mask-image: linear-gradient(to left,#000 65%,transparent 100%); }
+.architecture-floor { position: absolute; inset: auto 0 0; height: 21%; background: url('./assets/lantern-room.jpg') center bottom / 100% auto no-repeat; mask-image: linear-gradient(transparent,#0008 60%,#000); opacity: .55; }
+.portal-header,.interior-page .site-header { background: linear-gradient(#140b12f2,#140b1299,transparent); border-color: #b88a561a; }
+.portal-footer { background: linear-gradient(transparent,#130b12b3); }
+.portal-page .door-front { background: #2c1019 url('./assets/burgundy-door.png') center / 125% 102% no-repeat; box-shadow: inset -7px 0 14px #0005; }
+.portal-page .door-front :is(.door-grain,.door-panel,.door-monogram,.door-inscription,.door-bottom-label) { display: none; }
+.portal-page .door-inside { background: linear-gradient(110deg,#2e1520,#44212e 48%,#25111c); }
+.portal-page .door-panel { border-color: #b88a574f; background: linear-gradient(115deg,#19091080,#45202a44,#190b1380); }
+.portal-page .entrance-title,.portal-page .entrance-prompt { text-shadow: 0 2px 12px #10080d; }
+/* Keep the reading area between the illuminated stonework. */
+.interior-page .container { max-width: 1120px; width: calc(100% - 370px); }
 .interior-page .header-inner { max-width: none; width: 92%; }
-/* The labels stand alone now that their decorative numbering is removed. */
+.interior-page .architecture-wing { --wing-w: clamp(145px,20vw,330px); opacity: .8; }
+.interior-page .architecture-wing-left { mask-image: linear-gradient(to right,#000 45%,transparent 95%); }
+.interior-page .architecture-wing-right { mask-image: linear-gradient(to left,#000 45%,transparent 95%); }
+.interior-page .architecture-floor { opacity: .2; }
 .support-room .service-content { padding-left: 0; }
 .support-room .service-group summary { gap: 12px; }
 .interior-page .steps li { padding-top: 26px; }
 @media (max-width: 1399px) and (min-width: 701px) {
  .portal-page { --door-h: min(clamp(340px,calc(100svh - 310px),470px),calc((100vw - 180px) / 1.98)); }
- .portal-page .side-pillar { width: 60px; }
- .portal-page .pillar-left { left: 12px; }.portal-page .pillar-right { right: 12px; }
- .interior-page .container { width: calc(100% - 200px); }.interior-page .header-inner { width: 92%; }
- .side-pillar { width: 70px; left: auto; }.pillar-left { left: 8px; }.pillar-right { right: 8px; }
+ .architecture-wing { --wing-w: clamp(140px,23vw,300px); }
+ .interior-page .container { width: calc(100% - 240px); }.interior-page .header-inner { width: 92%; }
+ .interior-page .architecture-wing { --wing-w: 200px; }
 }
 @media (max-width: 1000px) and (min-width: 701px) {
  .portal-page .inner-signature { display: none; }
- .portal-page .door-inside { padding: 35px 17px 18px; }
+ .portal-page .door-inside { padding: 32px 17px 18px; }
  .portal-page .inner-heading h2 { font-size: 28px; }
- .portal-page .door-link { min-height: 58px; padding-block: 10px; }
+ .portal-page .door-link { min-height: 54px; padding-block: 8px; }
  .portal-page .door-link strong { font-size: 23px; }
- .portal-page .side-pillar { width: 42px; }.portal-page .pillar-left { left: 7px; }.portal-page .pillar-right { right: 7px; }
- .portal-page .pillar-lantern { width: 100%; left: 0; }
- .side-pillar { width: 52px; }.pillar-left { left: 7px; }.pillar-right { right: 7px; }
+ .architecture-wing { --wing-w: 150px; }
  .interior-page .container { width: calc(100% - 156px); }.interior-page .header-inner { width: 92%; }
- .pillar-lantern { width: 88%; left: 6%; }.lantern-halo { height: 180px; top: calc(28% - 36px); }
+ .interior-page .architecture-wing { --wing-w: 140px; opacity: .6; }
  .interior-layout,.support-room,.contact-room { gap: 30px; }
  .interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: 52px; }
  .contact-room .email-row { flex-wrap: wrap; }
 }
 @media (max-width: 700px) {
+ .architecture-wing,.interior-page .architecture-wing { --wing-w: 82px; --art-h: calc(100svh - 76px); top: 76px; opacity: .75; }
+ .architecture-wing-left,.interior-page .architecture-wing-left { mask-image: linear-gradient(to right,#000 35%,transparent); }
+ .architecture-wing-right,.interior-page .architecture-wing-right { mask-image: linear-gradient(to left,#000 35%,transparent); }
+ .architecture-floor { background-size: auto 100svh; height: 16%; }
+ .interior-page .architecture-wing { opacity: .3; }
  .portal-page .door-scene { transform: translateX(calc(var(--door-w) * .26)) scale(.52); }
  .portal-ready .entrance:is([data-state="closed"],[data-state="unlocking"],[data-state="closing"]) .door-scene { transform: translateX(0) scale(1); }
- .side-pillar,.portal-page .side-pillar { top: 108px; bottom: 52px; width: 30px; }
- .pillar-left,.portal-page .pillar-left { left: 2px; }.pillar-right,.portal-page .pillar-right { right: 2px; }
- .pillar-stone { filter: drop-shadow(2px 3px 3px #0005); }
- .pillar-lantern,.portal-page .pillar-lantern { width: 100%; left: 0; top: 31%; }
- .lantern-halo { width: 220%; left: -60%; top: calc(31% - 20px); height: 120px; }
- .interior-page .container { width: calc(100% - 90px); }.interior-page .header-inner { width: calc(100% - 40px); }
+ .interior-page .container { width: calc(100% - 80px); }.interior-page .header-inner { width: calc(100% - 40px); }
  .interior-copy h1,.support-room .interior-copy h1,.contact-room .interior-copy h1 { font-size: clamp(44px,12.8vw,66px); }
  .interior-page .main-nav { left: 0; right: 0; }
  .interior-page .steps li { padding: 23px 19px; }
- .support-room .service-group h2 { font-size: 25px; }.support-room .service-content { padding-left: 0; }
+ .support-room .service-group h2 { font-size: 25px; }
  .contact-room .email-row { flex-wrap: wrap; gap: 8px; }.contact-room .email-row > a { font-size: 14px; }
  .room-navigation { gap: 8px; }.next-room > span { font-size: 21px; }
  .portal-page .door-link { gap: 8px; }
 }
-@media (max-width: 350px) { .side-pillar,.portal-page .side-pillar { width: 25px; }.interior-page .container { width: calc(100% - 74px); }.interior-page .header-inner { width: calc(100% - 36px); } }
+@media (max-width: 350px) { .interior-page .container { width: calc(100% - 64px); }.interior-page .header-inner { width: calc(100% - 36px); } }
